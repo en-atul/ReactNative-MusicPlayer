@@ -17,12 +17,14 @@ import {
   Animated,
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
+import {connect} from 'react-redux';
+import * as actions from '../redux/actions';
+
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import BottomMenu from '../components/BottomMenu';
-import {EventRegister} from 'react-native-event-listeners';
 import Menu from 'react-native-vector-icons/Feather';
 import Icon from 'react-native-vector-icons/Ionicons';
-import MCI from 'react-native-vector-icons/MaterialCommunityIcons';
+import {withTheme} from 'styled-components/native';
 
 import {deleteFavorite} from '../redux/actions/favorite';
 import {setCurrentTrack, setQueue} from '../redux/actions/playback';
@@ -69,19 +71,14 @@ function Item2({data, index, select, arr, bc, border, txtColor}) {
   );
 }
 
-export default function FavoriteScreen(props) {
+function FavoriteScreen(props) {
   const [select, setSelect] = React.useState(false);
   const [selectarr, setSelectArr] = React.useState([]);
 
   const dispatch = useDispatch();
-  const {theme} = useSelector((state) => state.settings);
   const {favorite} = useSelector((state) => state.favorite);
 
-  const bg = theme === 'true' ? '#fff' : '#24292e';
-  const bg2 = theme === 'true' ? '#000' : '#fff';
-  const txt = theme === 'true' ? '#ccc' : '#212121';
-  const border1 = theme === 'true' ? '#121212' : '#eee';
-  const header = theme === 'true' ? '#000' : '#fff';
+  const {bg, bg2, txt, border1, header} = props.theme;
 
   const selectItem = (id) => {
     setSelect(false);
@@ -387,3 +384,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+export default connect('', actions)(withTheme(FavoriteScreen));

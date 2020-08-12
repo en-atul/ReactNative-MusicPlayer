@@ -10,4 +10,10 @@ export const dark = {
   fgTrans: 'rgba(30, 215, 96, ',
   bgTrans: 'rgba(18, 18, 18, ',
   current: 'dark',
+
+  bg: '#fff',
+  bg2: '#000',
+  txt: '#ccc',
+  border1: '#121212',
+  header: '#000',
 };

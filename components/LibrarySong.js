@@ -18,12 +18,11 @@ import {
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {EventRegister} from 'react-native-event-listeners';
 import BottomMenu from './BottomMenu';
 import {setCurrentTrack, setQueue} from '../redux/actions/playback';
 import Menu from 'react-native-vector-icons/Feather';
 
-function Item({item, bc, border, txtColor, skel}) {
+function Item({item, bc, border, txtColor}) {
   return (
     <View
       style={[styles.item, {backgroundColor: bc, borderBottomColor: border}]}>
@@ -31,11 +30,7 @@ function Item({item, bc, border, txtColor, skel}) {
         {item.artwork ? (
           <Image source={{uri: item.artwork}} style={styles.cover} />
         ) : (
-          <View
-            style={[
-              styles.cover,
-              {backgroundColor: skel, borderColor: border},
-            ]}>
+          <View style={[styles.cover, {borderColor: border}]}>
             <Icon name="ios-musical-notes-outline" size={30} color={txtColor} />
           </View>
         )}
@@ -74,11 +69,8 @@ function MainScreen(props) {
   const bg = theme !== 'light' ? '#ccc' : '#121212';
   const bg2 = theme !== 'light' ? '#000' : '#fff';
   const txt = theme !== 'light' ? '#fdfdfd' : '#121212';
-  const txt2 = theme !== 'light' ? '#6b6b6b' : '#212121';
   const border1 = theme !== 'light' ? '#121212' : '#eee';
-  const bc = theme !== 'light' ? '#0e0e0e' : '#fafafa';
   const header = theme !== 'light' ? '#000' : '#fff';
-  const skel = theme !== 'light' ? '#121212' : '#fafafa';
 
   const push = (song) => {
     dispatch(setCurrentTrack(song));
@@ -186,7 +178,6 @@ function MainScreen(props) {
                       bc={bg2}
                       border={border1}
                       txtColor={txt}
-                      skel={skel}
                     />
                   </View>
                 </TouchableOpacity>
@@ -228,11 +219,8 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     borderRadius: 5,
-    backgroundColor: '#fafafa',
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 0.7,
-    borderColor: '#eee',
   },
 
   left: {

@@ -20,6 +20,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import {addPlaylistSong} from '../redux/actions/playlist';
 
 import Menu from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 function AddSongToPlaylist(props) {
   const dispatch = useDispatch();
@@ -71,7 +72,17 @@ function AddSongToPlaylist(props) {
         key={index}
         style={[styles.item, {backgroundColor: bc, borderBottomColor: border}]}>
         <View style={styles.left}>
-          <Image source={{uri: data.artwork}} style={styles.cover} />
+          {data.artwork ? (
+            <Image source={{uri: data.artwork}} style={styles.cover} />
+          ) : (
+            <View style={[styles.cover, {borderColor: border}]}>
+              <Icon
+                name="ios-musical-notes-outline"
+                size={30}
+                color={txtColor}
+              />
+            </View>
+          )}
         </View>
         <View style={styles.right}>
           <Text style={[styles.itemTxt, {color: txtColor}]} numberOfLines={1}>
@@ -246,11 +257,8 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     borderRadius: 5,
-    backgroundColor: '#fafafa',
     alignItems: 'center',
     justifyContent: 'center',
-    // borderWidth: 0.7,
-    // borderColor: '#eee',
   },
 
   left: {

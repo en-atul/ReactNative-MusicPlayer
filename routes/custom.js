@@ -37,6 +37,7 @@ class Custom extends React.PureComponent {
       ...rest
     } = this.props;
     const bc2 = theme !== 'light' ? '#0c0c0c' : '#fafafa';
+    const inactive = theme !== 'light' ? '#29292a' : '#6b6b6b';
 
     return (
       <>
@@ -77,14 +78,14 @@ class Custom extends React.PureComponent {
               <Icon
                 name="share-social-outline"
                 size={15}
-                style={{marginLeft: 10, color: '#6b6b6b'}}
+                style={{marginLeft: 10, color: inactive}}
               />
             </View>
             <Text
               style={{
                 position: 'absolute',
                 left: 58,
-                color: '#6b6b6b',
+                color: inactive,
                 fontSize: 12,
                 fontFamily: 'sans-serif-medium',
               }}>

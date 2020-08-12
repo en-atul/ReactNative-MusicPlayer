@@ -10,4 +10,10 @@ export const light = {
   fgTrans: 'rgba(63, 81, 181, ',
   bgTrans: 'rgba(255, 255, 255, ',
   current: 'light',
+
+  bg: '#24292e',
+  bg2: '#fff',
+  txt: '#212121',
+  border1: '#eee',
+  header: '#fff',
 };

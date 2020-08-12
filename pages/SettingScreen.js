@@ -7,17 +7,11 @@
  */
 
 import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  BackHandler,
-} from 'react-native';
-import {useSelector, useDispatch} from 'react-redux';
+import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {useDispatch} from 'react-redux';
 import {EventRegister} from 'react-native-event-listeners';
 import {withTheme} from 'styled-components/native';
-
+import Toast from '../components/Toast';
 import Menu from 'react-native-vector-icons/Feather';
 import {Switch} from 'react-native-paper';
 import * as actions from '../redux/actions';
@@ -29,6 +23,7 @@ const clearCache = async () => {
   try {
     const {unlink, dirs} = RNFetchBlob.fs;
     await unlink(dirs.DocumentDir + '/.vion');
+    Toast('Cache Cleared');
   } catch (e) {}
 };
 
@@ -55,9 +50,11 @@ function SettingScreen(props) {
   };
 
   const {current, background, border, txtColor} = props.theme;
+
   React.useEffect(() => {
     setIsSwitchOn(current === 'light' ? false : true);
   }, []);
+
   return (
     <View style={[styles.container, {backgroundColor: background}]}>
       <View
@@ -106,11 +103,16 @@ function SettingScreen(props) {
             <Text style={styles.txt}>Dark theme</Text>
           </View>
           <View style={styles.right}>
-            <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
+            <Switch
+              value={isSwitchOn}
+              onValueChange={onToggleSwitch}
+              color="#2EC7FC"
+            />
           </View>
         </View>
 
-        <View
+        <TouchableOpacity
+          onPress={clearCache}
           activeOpacity={1}
           style={[
             styles.item,
@@ -119,7 +121,7 @@ function SettingScreen(props) {
           <View style={styles.left}>
             <Text style={styles.txt}>Clear Cache</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

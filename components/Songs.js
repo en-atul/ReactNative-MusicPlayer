@@ -22,7 +22,7 @@ import TrackPlayer from 'react-native-track-player';
 import {setCurrentTrack} from '../redux/actions/playback';
 import BottomMenu from './BottomMenu';
 
-function Item({item, bc, border, txtColor, skel}) {
+function Item({item, bc, border, txtColor}) {
   return (
     <View
       style={[styles.item, {backgroundColor: bc, borderBottomColor: border}]}>
@@ -30,11 +30,7 @@ function Item({item, bc, border, txtColor, skel}) {
         {item.artwork ? (
           <Image source={{uri: item.artwork}} style={styles.cover} />
         ) : (
-          <View
-            style={[
-              styles.cover,
-              {backgroundColor: skel, borderColor: border},
-            ]}>
+          <View style={[styles.cover, {borderColor: border}]}>
             <Icon name="ios-musical-notes-outline" size={30} color={txtColor} />
           </View>
         )}
@@ -70,14 +66,9 @@ function MainScreen(props) {
 
   const {songs} = data;
   const {theme} = useSelector((state) => state.settings);
-  const bg = theme !== 'light' ? '#ccc' : '#121212';
   const bg2 = theme !== 'light' ? '#000' : '#fff';
   const txt = theme !== 'light' ? '#fdfdfd' : '#121212';
-  const txt2 = theme !== 'light' ? '#6b6b6b' : '#212121';
   const border1 = theme !== 'light' ? '#121212' : '#eee';
-  const bc = theme !== 'light' ? '#0e0e0e' : '#fafafa';
-  const header = theme !== 'light' ? '#000' : '#fff';
-  const skel = theme !== 'light' ? '#121212' : '#fafafa';
 
   const push = (data) => {
     dispatch(setCurrentTrack(data));
@@ -101,13 +92,7 @@ function MainScreen(props) {
                 marginBottom: songs.length - 1 === index ? 220 : 0,
               }}>
               <View>
-                <Item
-                  item={item}
-                  bc={bg2}
-                  border={border1}
-                  txtColor={txt}
-                  skel={skel}
-                />
+                <Item item={item} bc={bg2} border={border1} txtColor={txt} />
               </View>
             </TouchableWithoutFeedback>
           )}
@@ -133,7 +118,6 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     borderRadius: 5,
-    backgroundColor: '#fafafa',
     alignItems: 'center',
     justifyContent: 'center',
   },
