@@ -21,6 +21,7 @@ import {useRoute} from '@react-navigation/native';
 import {Switch} from 'react-native-paper';
 import {toggleTheme} from '../redux/actions/settings';
 import RNFetchBlob from 'rn-fetch-blob';
+import {useFocusEffect} from '@react-navigation/native';
 
 const clearCache = async () => {
   try {
@@ -33,6 +34,20 @@ export default function SettingScreen(props) {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
   const dispatch = useDispatch();
   const {theme} = useSelector((state) => state.settings);
+  useFocusEffect(
+    React.useCallback(() => {
+      console.log('focusssssssss');
+      EventRegister.emit('shift', true);
+
+      return () => {
+        EventRegister.emit('shift', false);
+
+        // unsubscribe();
+      };
+    }, []),
+  );
+
+  React.useFo;
 
   const onToggleSwitch = () => {
     if (!isSwitchOn) {
