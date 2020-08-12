@@ -1,5 +1,6 @@
 # ReactNative-MusicPlayer
 
+<img src="screenshots/img1.png" width="400px" height="800px"/>
 
 
 ![](screenshots/image1.png)
