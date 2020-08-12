@@ -34,20 +34,15 @@ export default function SettingScreen(props) {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
   const dispatch = useDispatch();
   const {theme} = useSelector((state) => state.settings);
+
   useFocusEffect(
     React.useCallback(() => {
-      console.log('focusssssssss');
       EventRegister.emit('shift', true);
-
       return () => {
         EventRegister.emit('shift', false);
-
-        // unsubscribe();
       };
     }, []),
   );
-
-  React.useFo;
 
   const onToggleSwitch = () => {
     if (!isSwitchOn) {

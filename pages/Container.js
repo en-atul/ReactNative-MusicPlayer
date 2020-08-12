@@ -42,7 +42,7 @@ function Container(props) {
     }
   }, []);
 
-  const bc = theme === 'light' ? '#fff' : '#081e25';
+  const bc = theme === 'light' ? '#fff' : '#000';
   const bar = theme === 'light' ? 'dark-content' : 'light-content';
 
   return (

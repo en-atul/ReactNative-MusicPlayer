@@ -17,12 +17,9 @@ import {
   BackHandler,
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import {useRoute} from '@react-navigation/native';
 import BottomMenu from '../components/BottomMenu';
-import {EventRegister} from 'react-native-event-listeners';
 import Menu from 'react-native-vector-icons/Feather';
 import {setCurrentTrack, setQueue} from '../redux/actions/playback';
-import TrackPlayer from 'react-native-track-player';
 
 function Item2({data, index, bc, border, txtColor}) {
   return (
@@ -58,11 +55,8 @@ function MostPlayed(props) {
   const bg = theme !== 'light' ? '#fff' : '#24292e';
   const bg2 = theme !== 'light' ? '#000' : '#fff';
   const txt = theme !== 'light' ? '#ccc' : '#212121';
-  const txt2 = theme !== 'light' ? '#6b6b6b' : '#212121';
   const border1 = theme !== 'light' ? '#121212' : '#eee';
-  const bc = theme !== 'light' ? '#0e0e0e' : '#fafafa';
   const header = theme !== 'light' ? '#000' : '#fff';
-  const ph = theme !== 'light' ? '#999' : '#BCBABA';
 
   React.useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
@@ -78,17 +72,6 @@ function MostPlayed(props) {
     props.navigation.goBack();
     return true;
   };
-
-  const route = useRoute();
-  React.useEffect(() => {
-    if (route.name === 'MostPlayed') {
-      EventRegister.emit('shift', true);
-    }
-
-    return () => {
-      EventRegister.emit('shift', false);
-    };
-  }, []);
 
   const push = (song) => {
     dispatch(setCurrentTrack(song));
@@ -215,8 +198,6 @@ function MostPlayed(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
   header: {
     flexDirection: 'row',
@@ -228,22 +209,12 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
     borderBottomColor: '#ccc',
   },
-  input: {
-    width: '90%',
-    height: 40,
-    borderRadius: 7,
-    borderColor: '#eee',
-    textAlign: 'center',
-    borderWidth: 1,
 
-    backgroundColor: '#fdfdfd',
-  },
   item: {
     flexDirection: 'row',
     height: 70,
     width: '100%',
     overflow: 'hidden',
-
     borderWidth: 0.7,
     borderColor: 'transparent',
     backgroundColor: '#fff',
@@ -257,29 +228,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     fontFamily: 'sans-serif-medium',
   },
-  title: {
-    fontSize: 32,
-  },
-  search: {
-    paddingRight: 10,
-    marginTop: 10,
-    width: '100%',
-    flexDirection: 'row',
-    // backgroundColor: '#fff',
-  },
+
   item2: {
     marginLeft: 10,
     fontSize: 10,
     fontFamily: 'sans-serif-medium',
     color: '#6b6b6b',
     width: '70%',
-  },
-  result: {
-    fontStyle: 'italic',
-    fontFamily: 'sans-serif-medium',
-    padding: 10,
-    paddingTop: 0,
-    textAlign: 'center',
   },
 
   cover: {
@@ -289,8 +244,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fafafa',
     alignItems: 'center',
     justifyContent: 'center',
-    // borderWidth: 0.7,
-    // borderColor: '#eee',
   },
 
   left: {

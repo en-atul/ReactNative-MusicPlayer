@@ -7,43 +7,19 @@
  */
 
 import React from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  TextInput,
-  FlatList,
-  Animated,
-} from 'react-native';
-import {useSelector, useDispatch} from 'react-redux';
-import {addPlaylist, deletePlaylist} from '../redux/actions/playlist';
+import {View, Text, TouchableOpacity, StyleSheet, FlatList} from 'react-native';
+import {useSelector} from 'react-redux';
 import Menu from 'react-native-vector-icons/Feather';
-import Icon from 'react-native-vector-icons/Ionicons';
-
-import Modal from 'react-native-modal';
-
-import Swipeable from 'react-native-gesture-handler/Swipeable';
-import {ScrollView} from 'react-native-gesture-handler';
 
 export default function PlayistScreen(props) {
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState('');
-
-  const [select, setSelect] = React.useState(false);
-
-  const dispatch = useDispatch();
   const {theme} = useSelector((state) => state.settings);
   const {albums} = useSelector((state) => state.data);
 
   const bg = theme !== 'light' ? '#fff' : '#24292e';
   const bg2 = theme !== 'light' ? '#000' : '#fff';
   const txt = theme !== 'light' ? '#fff' : '#212121';
-  const txt2 = theme !== 'light' ? '#6b6b6b' : '#212121';
   const border1 = theme !== 'light' ? '#121212' : '#eee';
-  const bc = theme !== 'light' ? '#0e0e0e' : '#fafafa';
   const header = theme !== 'light' ? '#000' : '#fff';
-  const modal = theme !== 'light' ? '#121212' : '#fff';
 
   function Item2({data, index, arr, bc, border, txtColor}) {
     return (
@@ -59,9 +35,8 @@ export default function PlayistScreen(props) {
           <View
             style={{
               backgroundColor: '#2EC7FC',
-              width: select ? '50%' : '70%',
+              width: '70%',
               height: 30,
-
               borderRadius: 20,
               justifyContent: 'center',
               alignItems: 'center',
@@ -70,23 +45,6 @@ export default function PlayistScreen(props) {
               {arr.length} {arr.length <= 1 ? 'song' : 'songs'}
             </Text>
           </View>
-          {select && (
-            <View
-              style={{
-                backgroundColor: arr.includes(data) ? '#2EC7FC' : '#ecf1f7',
-                width: 20,
-                height: 20,
-                borderRadius: 50,
-                justifyContent: 'center',
-                alignItems: 'center',
-                position: 'absolute',
-                right: 15,
-              }}>
-              {arr.includes(data) && (
-                <Menu name="check" color="#fff" size={15} />
-              )}
-            </View>
-          )}
         </View>
       </View>
     );
@@ -200,16 +158,6 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
     borderBottomColor: '#ccc',
   },
-  input: {
-    width: '90%',
-    height: 40,
-    borderRadius: 7,
-    borderColor: '#eee',
-    textAlign: 'center',
-    borderWidth: 1,
-
-    backgroundColor: '#fdfdfd',
-  },
 
   item: {
     flexDirection: 'row',
@@ -228,30 +176,6 @@ const styles = StyleSheet.create({
     color: '#6b6b6b',
     borderRadius: 10,
     fontFamily: 'sans-serif-medium',
-  },
-  title: {
-    fontSize: 32,
-  },
-  search: {
-    paddingRight: 10,
-    marginTop: 10,
-    width: '100%',
-    flexDirection: 'row',
-    // backgroundColor: '#fff',
-  },
-  item2: {
-    marginLeft: 10,
-    fontSize: 10,
-    fontFamily: 'sans-serif-medium',
-    color: '#6b6b6b',
-    width: '70%',
-  },
-  result: {
-    fontStyle: 'italic',
-    fontFamily: 'sans-serif-medium',
-    padding: 10,
-    paddingTop: 0,
-    textAlign: 'center',
   },
 
   cover: {

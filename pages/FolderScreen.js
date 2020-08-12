@@ -17,14 +17,10 @@ import {
   Animated,
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import {addPlaylist, deletePlaylist} from '../redux/actions/playlist';
 import Menu from 'react-native-vector-icons/Feather';
-import Icon from 'react-native-vector-icons/Ionicons';
 import _ from 'underscore';
 
 export default function PlayistScreen(props) {
-  const dispatch = useDispatch();
-
   const {songs} = useSelector((state) => state.data);
   const {theme} = useSelector((state) => state.settings);
 
@@ -34,11 +30,8 @@ export default function PlayistScreen(props) {
   const bg = theme !== 'light' ? '#fff' : '#24292e';
   const bg2 = theme !== 'light' ? '#000' : '#fff';
   const txt = theme !== 'light' ? '#fff' : '#212121';
-  const txt2 = theme !== 'light' ? '#6b6b6b' : '#212121';
   const border1 = theme !== 'light' ? '#121212' : '#eee';
-  const bc = theme !== 'light' ? '#0e0e0e' : '#fafafa';
   const header = theme !== 'light' ? '#000' : '#fff';
-  const modal = theme !== 'light' ? '#121212' : '#fff';
 
   function Item2({data, index, arr, bc, border, txtColor}) {
     let bi = _.groupBy(songs, 'folder');
@@ -180,16 +173,6 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
     borderBottomColor: '#ccc',
   },
-  input: {
-    width: '90%',
-    height: 40,
-    borderRadius: 7,
-    borderColor: '#eee',
-    textAlign: 'center',
-    borderWidth: 1,
-
-    backgroundColor: '#fdfdfd',
-  },
 
   item: {
     flexDirection: 'row',
@@ -208,30 +191,6 @@ const styles = StyleSheet.create({
     color: '#6b6b6b',
     borderRadius: 10,
     fontFamily: 'sans-serif-medium',
-  },
-  title: {
-    fontSize: 32,
-  },
-  search: {
-    paddingRight: 10,
-    marginTop: 10,
-    width: '100%',
-    flexDirection: 'row',
-    // backgroundColor: '#fff',
-  },
-  item2: {
-    marginLeft: 10,
-    fontSize: 10,
-    fontFamily: 'sans-serif-medium',
-    color: '#6b6b6b',
-    width: '70%',
-  },
-  result: {
-    fontStyle: 'italic',
-    fontFamily: 'sans-serif-medium',
-    padding: 10,
-    paddingTop: 0,
-    textAlign: 'center',
   },
 
   cover: {

@@ -19,11 +19,9 @@ import {
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
-import {EventRegister} from 'react-native-event-listeners';
 import Menu from 'react-native-vector-icons/Feather';
 import Icon from 'react-native-vector-icons/Ionicons';
 import MCI from 'react-native-vector-icons/MaterialCommunityIcons';
-import {useRoute} from '@react-navigation/native';
 import {deletePlaylistSong} from '../redux/actions/playlist';
 import {setCurrentTrack, setQueue} from '../redux/actions/playback';
 import BottomMenu from '../components/BottomMenuPlaylist';
@@ -103,6 +101,7 @@ export default function PlaylistSong(props) {
   const push = (song) => {
     dispatch(setCurrentTrack(song));
   };
+
   const playAll = async () => {
     const arr = playlistSongs.filter(
       (data) => data.db === props.route.params.data,
@@ -126,16 +125,6 @@ export default function PlaylistSong(props) {
       setSelectArr([...selectarr, id]);
     }
   };
-  const route = useRoute();
-  React.useEffect(() => {
-    if (route.name === 'PlaylistSong') {
-      EventRegister.emit('shift', true);
-    }
-
-    return () => {
-      EventRegister.emit('shift', false);
-    };
-  }, []);
 
   const deleteAll = () => {
     selectarr.map((data) => {
@@ -143,6 +132,7 @@ export default function PlaylistSong(props) {
     });
     selectItem();
   };
+
   const RightActions = ({progress, dragX, id}) => {
     const scale = dragX.interpolate({
       inputRange: [-100, 0],

@@ -330,22 +330,12 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
     borderBottomColor: '#ccc',
   },
-  input: {
-    width: '90%',
-    height: 40,
-    borderRadius: 7,
-    borderColor: '#eee',
-    textAlign: 'center',
-    borderWidth: 1,
 
-    backgroundColor: '#fdfdfd',
-  },
   item: {
     flexDirection: 'row',
     height: 70,
     width: '100%',
     overflow: 'hidden',
-
     borderWidth: 0.7,
     borderColor: 'transparent',
     backgroundColor: '#fff',
@@ -359,29 +349,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     fontFamily: 'sans-serif-medium',
   },
-  title: {
-    fontSize: 32,
-  },
-  search: {
-    paddingRight: 10,
-    marginTop: 10,
-    width: '100%',
-    flexDirection: 'row',
-    // backgroundColor: '#fff',
-  },
+
   item2: {
     marginLeft: 10,
     fontSize: 10,
     fontFamily: 'sans-serif-medium',
     color: '#6b6b6b',
     width: '70%',
-  },
-  result: {
-    fontStyle: 'italic',
-    fontFamily: 'sans-serif-medium',
-    padding: 10,
-    paddingTop: 0,
-    textAlign: 'center',
   },
 
   cover: {
@@ -391,8 +365,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fafafa',
     alignItems: 'center',
     justifyContent: 'center',
-    // borderWidth: 0.7,
-    // borderColor: '#eee',
   },
 
   left: {

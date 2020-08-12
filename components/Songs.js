@@ -136,8 +136,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fafafa',
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 0.7,
-    borderColor: '#eee',
   },
 
   left: {

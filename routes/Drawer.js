@@ -68,7 +68,7 @@ function MyDrawer() {
   const border = theme !== 'light' ? '#0e0e0e' : '#f0f0f3';
   const inactive = theme !== 'light' ? '#191818' : '#b9b9b9';
 
-  function libStack() {
+  function libraryStack() {
     return (
       <Stack.Navigator headerMode="none">
         <>
@@ -114,6 +114,30 @@ function MyDrawer() {
           <Stack.Screen
             name="LibrarySong"
             component={LibrarySong}
+            options={{
+              cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+            }}
+          />
+        </>
+      </Stack.Navigator>
+    );
+  }
+
+  function playlistStack() {
+    return (
+      <Stack.Navigator headerMode="none">
+        <>
+          <Stack.Screen name="Playlist" component={PlaylistScreen} />
+          <Stack.Screen
+            name="PlaylistSong"
+            component={PlaylistSong}
+            options={{
+              cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+            }}
+          />
+          <Stack.Screen
+            name="AddSongToPlaylist"
+            component={AddSongToPlaylist}
             options={{
               cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
             }}
@@ -172,7 +196,7 @@ function MyDrawer() {
 
       <Tab.Screen
         name="Library"
-        component={libStack}
+        component={libraryStack}
         options={{
           tabBarLabel: 'Library',
           tabBarIcon: ({focused, tintColor}) => (
@@ -187,8 +211,8 @@ function MyDrawer() {
       />
 
       <Tab.Screen
-        name="Playlist"
-        component={PlaylistScreen}
+        name="PlaylistScreen"
+        component={playlistStack}
         options={{
           tabBarLabel: 'Playlist',
           tabBarIcon: ({focused, tintColor}) => (
@@ -233,21 +257,6 @@ function MyDrawer() {
       <Stack.Navigator headerMode="none">
         <>
           <Stack.Screen name="Main" children={createTab} />
-
-          <Stack.Screen
-            name="PlaylistSong"
-            component={PlaylistSong}
-            options={{
-              cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-            }}
-          />
-          <Stack.Screen
-            name="AddSongToPlaylist"
-            component={AddSongToPlaylist}
-            options={{
-              cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-            }}
-          />
         </>
       </Stack.Navigator>
     );

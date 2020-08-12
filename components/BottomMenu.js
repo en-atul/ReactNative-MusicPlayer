@@ -30,6 +30,7 @@ export default function BottomMenu(props) {
   const [visiblePlaylist, setVisiblePlaylist] = React.useState(false);
   const {playlist, playlistSongs} = useSelector((state) => state.playlist);
   const {favorite} = useSelector((state) => state.favorite);
+  const {theme} = useSelector((state) => state.settings);
 
   function onShare() {
     Share.open({
@@ -86,6 +87,9 @@ export default function BottomMenu(props) {
     TrackPlayer.add(props.song);
     Toast(`Added to queue`);
   };
+
+  const bg = theme === 'light' ? '#ffffff' : '#121212';
+
   return (
     <>
       <TouchableOpacity
@@ -103,7 +107,7 @@ export default function BottomMenu(props) {
       <Modal
         isVisible={visible}
         backdropOpacity={0.5}
-        backdropColor="#fff"
+        backdropColor={bg}
         style={{margin: 0}}
         animationInTiming={500}
         animationOutTiming={500}
@@ -112,7 +116,7 @@ export default function BottomMenu(props) {
         onBackButtonPress={() => setVisible(false)}
         onBackdropPress={() => setVisible(false)}>
         <View style={{flex: 1}}>
-          <View style={styles.modal}>
+          <View style={[styles.modal, {backgroundColor: bg}]}>
             {props.song.artwork && (
               <View style={[styles.artwork, {elevation: 18}]}>
                 <Image
@@ -183,7 +187,7 @@ export default function BottomMenu(props) {
       <Modal
         isVisible={visiblePlaylist}
         backdropOpacity={0.5}
-        backdropColor="#fff"
+        backdropColor={bg}
         style={{margin: 0}}
         animationInTiming={500}
         animationOutTiming={500}
@@ -192,7 +196,7 @@ export default function BottomMenu(props) {
         onBackButtonPress={() => setVisiblePlaylist(false)}
         onBackdropPress={() => setVisiblePlaylist(false)}>
         <View style={{flex: 1}}>
-          <View style={styles.modal}>
+          <View style={[styles.modal, {backgroundColor: bg}]}>
             {props.song.artwork && (
               <View style={[styles.artwork, {elevation: 18}]}>
                 <Image
@@ -267,7 +271,6 @@ const styles = StyleSheet.create({
   },
   modal: {
     height: '50%',
-    backgroundColor: '#fff',
     width: '100%',
     borderRadius: 4,
     justifyContent: 'flex-start',
