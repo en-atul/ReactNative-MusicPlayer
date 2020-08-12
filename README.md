@@ -10,7 +10,7 @@
   <img src="screenshots/img3.png" width="200px" height="400px"/>
   <img src="screenshots/img4.png" width="200px" height="400px"/>
   <img src="screenshots/img5.png" width="200px" height="400px"/>
-    <a href="https://play.google.com/store/apps/details?id=com.vion"> <img src="https://john-darke.co.uk/wp-content/uploads/2018/10/DOWNLOAD-PLAYSTORE-21.png.renditions.extra-small.png" width="200px" height="80px"/></a>
+    <a href="https://play.google.com/store/apps/details?id=com.vion"> <img src="https://john-darke.co.uk/wp-content/uploads/2018/10/DOWNLOAD-PLAYSTORE-21.png.renditions.extra-small.png" width="200px" height="90px"/></a>
     
   <div>
     
