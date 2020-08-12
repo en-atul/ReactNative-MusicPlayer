@@ -7,7 +7,7 @@ export default function (state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'add_folders_to_skip':
       return {...state, foldersToSkip: action.payload};
-    case 'set_theme':
+    case 'THEME':
       return {...state, theme: action.payload};
     default:
       return state;

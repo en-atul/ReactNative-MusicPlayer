@@ -19,29 +19,32 @@ import {getMedia} from '../redux/actions/data';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import LottieView from 'lottie-react-native';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import NowPlaying from '../components/NowPlaying';
-import {ThemeProvider} from 'styled-components/native';
-import * as themes from '../themes';
+import {toggleTheme} from '../redux/actions/settings';
 import SplashScreen from 'react-native-splash-screen';
 
 function Container(props) {
   const [vol, setVol] = React.useState(false);
+  const dispatch = useDispatch();
+  const {songs} = useSelector((state) => state.data);
+  const {theme} = useSelector((state) => state.settings);
 
   React.useEffect(() => {
     props.getMedia();
     setTimeout(() => {
       SplashScreen.hide();
     }, 1000);
+    if (theme === 'light') {
+      dispatch(toggleTheme('light'));
+    } else {
+      dispatch(toggleTheme('dark'));
+    }
   }, []);
 
-  const {songs} = useSelector((state) => state.data);
-  const {theme} = useSelector((state) => state.settings);
-  // const {currentTrack} = useSelector((state) => state.playback);
-  const bc = '#fff';
-  const bg = '#121212';
-  const bar = 'dark-content';
-  //   songs.length > 0 && console.log(songs[0]);
+  const bc = theme === 'light' ? '#fff' : '#081e25';
+  const bar = theme === 'light' ? 'dark-content' : 'light-content';
+
   return (
     <View
       style={{
@@ -51,9 +54,7 @@ function Container(props) {
       <StatusBar backgroundColor={bc} barStyle={bar} />
 
       {songs.length > 0 ? (
-        <ThemeProvider theme={themes[theme]}>
-          <NavDrawer />
-        </ThemeProvider>
+        <NavDrawer />
       ) : (
         <View
           style={{
@@ -75,7 +76,7 @@ function Container(props) {
               loop
             />
           </View>
-          <Text style={{color: bg, fontFamily: 'OpenSans'}}>
+          <Text style={{color: '#000', fontFamily: 'OpenSans'}}>
             fetching songs...
           </Text>
           {vol && (

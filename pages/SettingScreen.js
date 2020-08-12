@@ -19,16 +19,39 @@ import {EventRegister} from 'react-native-event-listeners';
 import Menu from 'react-native-vector-icons/Feather';
 import {useRoute} from '@react-navigation/native';
 import {Switch} from 'react-native-paper';
+import {toggleTheme} from '../redux/actions/settings';
+import RNFetchBlob from 'rn-fetch-blob';
 
-export default function SettingScreen() {
+const clearCache = async () => {
+  try {
+    const {unlink, dirs} = RNFetchBlob.fs;
+    await unlink(dirs.DocumentDir + '/.vion');
+  } catch (e) {}
+};
+
+export default function SettingScreen(props) {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
+  const dispatch = useDispatch();
+  const {theme} = useSelector((state) => state.settings);
 
-  const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
+  const onToggleSwitch = () => {
+    if (!isSwitchOn) {
+      dispatch(toggleTheme('dark'));
+    } else {
+      dispatch(toggleTheme('light'));
+    }
+    setIsSwitchOn(!isSwitchOn);
+  };
+
+  React.useEffect(() => {
+    setIsSwitchOn(theme === 'light' ? false : true);
+  }, []);
+  console.log('theme', theme);
   return (
     <View style={[styles.container]}>
       <View style={[styles.header]}>
         <TouchableOpacity
-          onPress={() => this.props.navigation.openDrawer()}
+          onPress={() => props.navigation.openDrawer()}
           style={{
             width: '10%',
 
