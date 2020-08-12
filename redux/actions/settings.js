@@ -1,10 +1,10 @@
 import changeNavigationBarColor from 'react-native-navigation-bar-color';
 
-export const toggleTheme = async (theme) => {
+export const toggleTheme = (theme) => {
   if (theme === 'light') {
-    await changeNavigationBarColor('#ffffff', true);
+    changeNavigationBarColor('#ffffff', true);
   } else {
-    await changeNavigationBarColor('#000000', true);
+    changeNavigationBarColor('#000000', true);
   }
   return {type: 'THEME', payload: theme};
 };

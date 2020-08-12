@@ -2,6 +2,8 @@ export const light = {
   foreground: '#2B05EE',
   foreground2: '#2B05EE',
   background: 'white',
+  border: '#f0f0f3',
+  txtColor: '#24292e',
   elevatedBG: '#F7F8FB',
   contrast: '#2EC7FC',
   contrastTrans: 'rgba(46,199,252, ',

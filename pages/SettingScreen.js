@@ -16,12 +16,14 @@ import {
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {EventRegister} from 'react-native-event-listeners';
+import {withTheme} from 'styled-components/native';
+
 import Menu from 'react-native-vector-icons/Feather';
-import {useRoute} from '@react-navigation/native';
 import {Switch} from 'react-native-paper';
-import {toggleTheme} from '../redux/actions/settings';
+import * as actions from '../redux/actions';
 import RNFetchBlob from 'rn-fetch-blob';
 import {useFocusEffect} from '@react-navigation/native';
+import {connect} from 'react-redux';
 
 const clearCache = async () => {
   try {
@@ -30,7 +32,7 @@ const clearCache = async () => {
   } catch (e) {}
 };
 
-export default function SettingScreen(props) {
+function SettingScreen(props) {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
   const dispatch = useDispatch();
   const {theme} = useSelector((state) => state.settings);
@@ -46,9 +48,9 @@ export default function SettingScreen(props) {
 
   const onToggleSwitch = () => {
     if (!isSwitchOn) {
-      dispatch(toggleTheme('dark'));
+      dispatch(props.toggleTheme('dark'));
     } else {
-      dispatch(toggleTheme('light'));
+      dispatch(props.toggleTheme('light'));
     }
     setIsSwitchOn(!isSwitchOn);
   };
@@ -56,24 +58,36 @@ export default function SettingScreen(props) {
   React.useEffect(() => {
     setIsSwitchOn(theme === 'light' ? false : true);
   }, []);
-  console.log('theme', theme);
+  const {
+    current,
+    elevatedBG,
+    foreground,
+    fgTrans,
+    background,
+    border,
+    txtColor,
+  } = props.theme;
+  console.log(current, 'theme', theme);
+
   return (
-    <View style={[styles.container]}>
-      <View style={[styles.header]}>
+    <View style={[styles.container, {backgroundColor: background}]}>
+      <View
+        style={[
+          styles.header,
+          {backgroundColor: background, borderBottomColor: border},
+        ]}>
         <TouchableOpacity
           onPress={() => props.navigation.openDrawer()}
           style={{
             width: '10%',
-
             justifyContent: 'center',
             alignItems: 'center',
           }}>
-          <Menu name="menu" size={27} />
+          <Menu name="menu" size={27} color={txtColor} />
         </TouchableOpacity>
         <View
           style={{
             width: '60%',
-
             justifyContent: 'center',
             alignItems: 'center',
           }}>
@@ -85,6 +99,7 @@ export default function SettingScreen(props) {
               fontWeight: '700',
               fontFamily: 'sans-serif-light',
               fontSize: 18,
+              color: txtColor,
             }}>
             Setting
           </Text>
@@ -92,7 +107,12 @@ export default function SettingScreen(props) {
       </View>
 
       <View style={{marginTop: 64, width: '100%', height: '100%'}}>
-        <View activeOpacity={1} style={styles.item}>
+        <View
+          activeOpacity={1}
+          style={[
+            styles.item,
+            {backgroundColor: background, borderBottomColor: border},
+          ]}>
           <View style={styles.left}>
             <Text style={styles.txt}>Dark theme</Text>
           </View>
@@ -101,7 +121,12 @@ export default function SettingScreen(props) {
           </View>
         </View>
 
-        <View activeOpacity={1} style={styles.item}>
+        <View
+          activeOpacity={1}
+          style={[
+            styles.item,
+            {backgroundColor: background, borderBottomColor: border},
+          ]}>
           <View style={styles.left}>
             <Text style={styles.txt}>Clear Cache</Text>
           </View>
@@ -161,3 +186,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 });
+
+export default connect('', actions)(withTheme(SettingScreen));
