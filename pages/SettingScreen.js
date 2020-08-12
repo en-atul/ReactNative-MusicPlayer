@@ -35,7 +35,6 @@ const clearCache = async () => {
 function SettingScreen(props) {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
   const dispatch = useDispatch();
-  const {theme} = useSelector((state) => state.settings);
 
   useFocusEffect(
     React.useCallback(() => {
@@ -55,20 +54,10 @@ function SettingScreen(props) {
     setIsSwitchOn(!isSwitchOn);
   };
 
+  const {current, background, border, txtColor} = props.theme;
   React.useEffect(() => {
-    setIsSwitchOn(theme === 'light' ? false : true);
+    setIsSwitchOn(current === 'light' ? false : true);
   }, []);
-  const {
-    current,
-    elevatedBG,
-    foreground,
-    fgTrans,
-    background,
-    border,
-    txtColor,
-  } = props.theme;
-  console.log(current, 'theme', theme);
-
   return (
     <View style={[styles.container, {backgroundColor: background}]}>
       <View
