@@ -18,53 +18,64 @@ import {useSelector, useDispatch} from 'react-redux';
 import {EventRegister} from 'react-native-event-listeners';
 import Menu from 'react-native-vector-icons/Feather';
 import {useRoute} from '@react-navigation/native';
+import {Switch} from 'react-native-paper';
 
-export default class SettingScreen extends React.Component {
-  componentDidMount() {
-    console.log('hello from setting');
-  }
+export default function SettingScreen() {
+  const [isSwitchOn, setIsSwitchOn] = React.useState(false);
 
-  render() {
-    return (
-      <View style={[styles.container]}>
-        <View style={[styles.header]}>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.openDrawer()}
+  const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
+  return (
+    <View style={[styles.container]}>
+      <View style={[styles.header]}>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.openDrawer()}
+          style={{
+            width: '10%',
+
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Menu name="menu" size={27} />
+        </TouchableOpacity>
+        <View
+          style={{
+            width: '60%',
+
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Text
             style={{
-              width: '10%',
-
-              justifyContent: 'center',
-              alignItems: 'center',
+              textAlign: 'left',
+              width: '100%',
+              marginLeft: 35,
+              fontWeight: '700',
+              fontFamily: 'sans-serif-light',
+              fontSize: 18,
             }}>
-            <Menu name="menu" size={27} />
-          </TouchableOpacity>
-          <View
-            style={{
-              width: '60%',
+            Setting
+          </Text>
+        </View>
+      </View>
 
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <Text
-              style={{
-                textAlign: 'left',
-                width: '100%',
-                marginLeft: 35,
-                fontWeight: '700',
-                fontFamily: 'sans-serif-light',
-                fontSize: 18,
-              }}>
-              Setting
-            </Text>
+      <View style={{marginTop: 64, width: '100%', height: '100%'}}>
+        <View activeOpacity={1} style={styles.item}>
+          <View style={styles.left}>
+            <Text style={styles.txt}>Dark theme</Text>
+          </View>
+          <View style={styles.right}>
+            <Switch value={isSwitchOn} onValueChange={onToggleSwitch} />
           </View>
         </View>
 
-        <View style={{marginTop: 64, width: '100%', height: '100%'}}>
-          <TouchableOpacity activeOpacity={1}></TouchableOpacity>
+        <View activeOpacity={1} style={styles.item}>
+          <View style={styles.left}>
+            <Text style={styles.txt}>Clear Cache</Text>
+          </View>
         </View>
       </View>
-    );
-  }
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -94,56 +105,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 
-  itemTxt: {
+  txt: {
     marginLeft: 20,
     fontSize: 18,
     color: '#6b6b6b',
     borderRadius: 10,
     fontFamily: 'sans-serif-medium',
   },
-  title: {
-    fontSize: 32,
-  },
-  search: {
-    paddingRight: 10,
-    marginTop: 10,
-    width: '100%',
-    flexDirection: 'row',
-    // backgroundColor: '#fff',
-  },
-  item2: {
-    marginLeft: 10,
-    fontSize: 10,
-    fontFamily: 'sans-serif-medium',
-    color: '#6b6b6b',
-    width: '70%',
-  },
-  result: {
-    fontStyle: 'italic',
-    fontFamily: 'sans-serif-medium',
-    padding: 10,
-    paddingTop: 0,
-    textAlign: 'center',
-  },
-
-  cover: {
-    width: 45,
-    height: 45,
-    borderRadius: 5,
-    backgroundColor: '#fafafa',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
 
   left: {
-    width: '60%',
+    width: '85%',
     height: 60,
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
 
-  select: {
-    width: '40%',
+  right: {
+    width: '15%',
     height: 60,
     alignItems: 'center',
     justifyContent: 'center',
