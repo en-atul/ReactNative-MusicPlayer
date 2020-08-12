@@ -384,7 +384,11 @@ function PlayingSong(props) {
                         justifyContent: 'center',
                         alignItems: 'center',
                       }}>
-                      <Icon name="ios-musical-notes-outline" size={30} />
+                      <Icon
+                        name="ios-musical-notes-outline"
+                        size={40}
+                        color={txt}
+                      />
                     </View>
                   </View>
                 )}

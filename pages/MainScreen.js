@@ -73,7 +73,7 @@ function MainScreen(props) {
             style={{
               width: '100%',
               textAlign: 'center',
-              fontSize: 20,
+              fontSize: 30,
               color: bg,
               fontFamily: 'Baumans',
             }}>
