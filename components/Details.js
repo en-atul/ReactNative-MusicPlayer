@@ -52,7 +52,6 @@ class Details extends React.PureComponent {
             style={{
               width: '60%',
               height: '100%',
-
               flexWrap: 'wrap',
             }}>
             <View style={styles.box}>
@@ -113,13 +112,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   boxTxt: {
-    color: '#121212',
+    color: '#616161',
     fontWeight: '700',
   },
   title: {
     fontSize: 10,
     fontWeight: '700',
-    color: '#616161',
+    color: '#999',
   },
 });
 Details.propTypes = {

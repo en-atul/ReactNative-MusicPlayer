@@ -18,5 +18,6 @@ export default async function () {
       TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
       TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
     ],
+    icon: require('../image/logo.png'),
   });
 }

@@ -30,7 +30,6 @@ import {
   setQueueTrack,
 } from '../redux/actions/playback';
 
-import LottieView from 'lottie-react-native';
 import Ion from 'react-native-vector-icons/Ionicons';
 import Toast from './Toast';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -40,14 +39,13 @@ import PropTypes from 'prop-types';
 import TrackPlayer from 'react-native-track-player';
 import {EventRegister} from 'react-native-event-listeners';
 import Modal from 'react-native-modal';
-import * as Animatable from 'react-native-animatable';
 import {Badge} from 'react-native-paper';
 import {useDispatch, useSelector} from 'react-redux';
 import ProgressSlider from './ProgressSlider';
 
 TrackPlayer.setupPlayer();
 
-function Item2({data, index, bc, border, txtColor, skel, un}) {
+function Item2({data, index, bc, border, txtColor, un}) {
   return (
     <View
       key={index}
@@ -56,11 +54,7 @@ function Item2({data, index, bc, border, txtColor, skel, un}) {
         {data.artwork ? (
           <Image source={{uri: data.artwork}} style={styles.cover} />
         ) : (
-          <View
-            style={[
-              styles.cover,
-              {backgroundColor: skel, borderColor: border},
-            ]}>
+          <View style={[styles.cover]}>
             <Icon name="ios-musical-notes-outline" size={30} color={un} />
           </View>
         )}
@@ -85,24 +79,8 @@ function Item2({data, index, bc, border, txtColor, skel, un}) {
 
 function PlayingSong(props) {
   const [panel, setPanel] = useState(false);
-  const [repeat, setRepeat] = useState(false);
   const [pos, setPos] = useState(false);
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-  const [currentTrackId, setCurrentTrackId] = useState(0);
   const [hide, setHide] = useState(false);
-
-  const [favarr, setFavarr] = useState([]);
-  const [queueItem, setQueue] = useState([]);
-
-  const [song, setSong] = useState({
-    id: '',
-    url: '',
-    title: '',
-    artist: '',
-    artwork: '',
-    album: '',
-  });
-  //   const playbackState = usePlaybackState();
 
   const dispatch = useDispatch();
   const {theme} = useSelector((state) => state.settings);
@@ -119,6 +97,13 @@ function PlayingSong(props) {
   } = useSelector((state) => state.playback);
 
   const scrollA = React.useRef(new Animated.Value(0)).current;
+
+  const unRecognized = theme !== 'light' ? '#ccc' : '#121212';
+  const bg2 = theme !== 'light' ? '#000' : '#fff';
+  const txt = theme !== 'light' ? '#fff' : '#24292e';
+  const txt2 = theme !== 'light' ? '#6b6b6b' : '#999';
+  const border1 = theme !== 'light' ? '#121212' : '#eee';
+  const bc = theme !== 'light' ? '#0e0e0e' : '#fafafa';
 
   useEffect(() => {
     EventRegister.addEventListener('shift', (data) => {
@@ -141,7 +126,7 @@ function PlayingSong(props) {
       const index = queueSong.findIndex(
         (data) => data.index === currentTrack.index,
       );
-      // console.log(queue, 'index from nowplaying queue true====> ', index);
+
       let nextTrack = shuffle
         ? queueSong[getRandomNumber(0, queueSong.length)]
         : index === queueSong.length - 1
@@ -217,7 +202,10 @@ function PlayingSong(props) {
         style={[
           styles.playing,
           {
-            borderTopColor: panel ? '#eee' : '#eee',
+            borderTopColor: panel ? 'transparent' : border1,
+            borderBottomColor: panel ? 'transparent' : border1,
+            borderColor: 'transparent',
+            backgroundColor: bc,
           },
         ]}
         activeOpacity={1}>
@@ -240,10 +228,14 @@ function PlayingSong(props) {
             <TouchableOpacity style={styles.title} onPress={() => openPanel()}>
               <Text
                 numberOfLines={1}
-                style={{fontWeight: '700', fontFamily: 'sans-serif-light'}}>
+                style={{
+                  fontWeight: '700',
+                  fontFamily: 'sans-serif-light',
+                  color: txt,
+                }}>
                 {currentTrack.title}
               </Text>
-              <Text numberOfLines={1} style={{fontSize: 11}}>
+              <Text numberOfLines={1} style={{fontSize: 11, color: txt2}}>
                 {currentTrack.artist || 'unknown'}
               </Text>
             </TouchableOpacity>
@@ -253,12 +245,12 @@ function PlayingSong(props) {
                 <Ion
                   name={isPlaying ? 'pause' : 'play'}
                   size={35}
-                  color="#24292e"
+                  color={txt}
                 />
               </TouchableWithoutFeedback>
 
               <TouchableOpacity onPress={() => skipToNext()}>
-                <Ion name="ios-play-skip-forward" size={25} color="#24292e" />
+                <Ion name="ios-play-skip-forward" size={25} color={txt} />
               </TouchableOpacity>
             </View>
           </View>
@@ -286,7 +278,7 @@ function PlayingSong(props) {
               }}>
               <TouchableWithoutFeedback onPress={onLoopPress}>
                 <View style={{flexDirection: 'row'}}>
-                  <Icon name="ios-repeat" size={25} color="#24292e" />
+                  <Icon name="ios-repeat" size={25} color={txt} />
                   <Badge
                     visible={loop}
                     size={12}
@@ -310,22 +302,22 @@ function PlayingSong(props) {
                   alignItems: 'center',
                 }}>
                 <TouchableWithoutFeedback onPress={() => skipToPrevious()}>
-                  <Ion name="ios-play-skip-back" size={33} color="#24292e" />
+                  <Ion name="ios-play-skip-back" size={33} color={txt} />
                 </TouchableWithoutFeedback>
                 <TouchableWithoutFeedback
                   onPress={() => dispatch(setPlayback(!isPlaying))}>
                   <Ion
                     name={isPlaying ? 'pause' : 'play'}
                     size={40}
-                    color="#24292e"
+                    color={txt}
                   />
                 </TouchableWithoutFeedback>
                 <TouchableWithoutFeedback onPress={() => skipToNext()}>
-                  <Ion name="ios-play-skip-forward" size={33} color="#24292e" />
+                  <Ion name="ios-play-skip-forward" size={33} color={txt} />
                 </TouchableWithoutFeedback>
               </View>
               <TouchableWithoutFeedback onPress={onShufflePress}>
-                <Icon name="ios-shuffle" size={25} />
+                <Icon name="ios-shuffle" size={25} color={txt} />
               </TouchableWithoutFeedback>
             </View>
           </View>
@@ -333,15 +325,6 @@ function PlayingSong(props) {
       </View>
     </View>
   );
-  const unRecognized = theme !== 'light' ? '#ccc' : '#121212';
-  const bg2 = theme !== 'light' ? '#000' : '#fff';
-  const txt = theme !== 'light' ? '#fff' : '#121212';
-  const txt2 = theme !== 'light' ? '#6b6b6b' : '#999';
-  const border1 = theme !== 'light' ? '#121212' : '#eee';
-  const bc = theme !== 'light' ? '#0e0e0e' : '#fafafa';
-  const header = theme !== 'light' ? '#000' : '#fff';
-  const ph = theme !== 'light' ? '#999' : '#BCBABA';
-  const skel = theme !== 'light' ? '#121212' : '#fafafa';
 
   return (
     <>
@@ -473,7 +456,6 @@ function PlayingSong(props) {
                           txtColor={
                             data.id === currentTrack.id ? '#36C0FC' : txt
                           }
-                          skel={skel}
                           un={unRecognized}
                         />
                       </View>
@@ -605,7 +587,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: '100%',
     flexDirection: 'row',
-    // backgroundColor: '#fff',
   },
   item2: {
     marginLeft: 10,
@@ -628,8 +609,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 0.7,
-    borderColor: '#eee',
   },
 
   left: {

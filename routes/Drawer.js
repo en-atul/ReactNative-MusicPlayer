@@ -64,9 +64,9 @@ function MyDrawer() {
   const color = theme !== 'light' ? '#29292a' : '#6b6b6b';
   const active = theme !== 'light' ? '#6b6b6b' : '#000';
   const fullBack = theme !== 'light' ? '#000000' : '#00000000';
-  const bg2 = theme !== 'light' ? '#6b6b6b' : '#6b6b6b';
+  const bg2 = theme !== 'light' ? '#ccc' : '#6b6b6b';
   const border = theme !== 'light' ? '#0e0e0e' : '#f0f0f3';
-  const inactive = theme !== 'light' ? '#191818' : '#b9b9b9';
+  const inactive = theme !== 'light' ? '#414141' : '#b9b9b9';
 
   function libraryStack() {
     return (
@@ -268,7 +268,7 @@ function MyDrawer() {
         <Drawer.Navigator
           drawerStyle={{
             height: '100%',
-            width: '60%',
+            width: '70%',
             backgroundColor: drawerbg,
             zIndex: 9,
           }}
@@ -285,7 +285,7 @@ function MyDrawer() {
           }}
           drawerContent={(props) => <Custom {...props} />}
           initialRouteName="Home"
-          // drawerType="slide"
+          drawerType="front"
           overlayColor="#0000004a"
           edgeWidth={0}
           backBehavior="initialRoute">

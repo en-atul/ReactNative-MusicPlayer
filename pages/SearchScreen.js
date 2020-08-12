@@ -592,17 +592,20 @@ class SearchScreen extends React.PureComponent {
           )}
         </View>
 
-        {/* {movies.length === 0 && artist.length === 0 && (
+        {movies.length === 0 && artist.length === 0 && searched.length === 0 && (
           <Text
             style={{
               color: '#6b6b6b',
               fontStyle: 'italic',
               width: '50%',
               lineHeight: 20,
+              position: 'absolute',
+              bottom: '50%',
+              textAlign: 'center',
             }}>
             search song by specifying song name or artist name.
           </Text>
-        )} */}
+        )}
       </View>
     );
   }
@@ -610,8 +613,7 @@ class SearchScreen extends React.PureComponent {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    alignItems: 'center',
   },
   header: {
     flexDirection: 'row',

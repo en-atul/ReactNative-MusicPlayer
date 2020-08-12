@@ -14,15 +14,11 @@ import {
   StyleSheet,
   Dimensions,
 } from 'react-native';
-import {useSelector, useDispatch} from 'react-redux';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {useRoute} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
 import {EventRegister} from 'react-native-event-listeners';
 import Menu from 'react-native-vector-icons/Feather';
 
 import Songs from '../components/Songs';
-import Modal from 'react-native-modal';
-
 import Details from '../components/Details';
 import {Banner} from 'react-native-paper';
 
@@ -77,7 +73,7 @@ function MainScreen(props) {
             style={{
               width: '100%',
               textAlign: 'center',
-              fontSize: 37,
+              fontSize: 20,
               color: bg,
               fontFamily: 'Baumans',
             }}>
@@ -104,7 +100,7 @@ function MainScreen(props) {
           style={{
             borderColor: 'transparent',
             width: Dimensions.get('screen').width,
-            backgroundColor: '#fdfdfd',
+            backgroundColor: '#ecf1f7',
             justifyContent: 'center',
             alignItems: 'center',
           }}>

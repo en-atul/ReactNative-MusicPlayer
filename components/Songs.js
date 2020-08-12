@@ -68,7 +68,7 @@ function MainScreen(props) {
   const {theme} = useSelector((state) => state.settings);
   const bg2 = theme !== 'light' ? '#000' : '#fff';
   const txt = theme !== 'light' ? '#fdfdfd' : '#121212';
-  const border1 = theme !== 'light' ? '#121212' : '#eee';
+  const border1 = theme !== 'light' ? '#121212' : '#ecf1f7';
 
   const push = (data) => {
     dispatch(setCurrentTrack(data));

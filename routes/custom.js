@@ -27,7 +27,7 @@ class Custom extends React.PureComponent {
   _Share = () => {
     Share.open({
       message:
-        'Download vion and enjoy offline playing!!!\nhttps://play.google.com/store/apps/details?id=com.vion',
+        'Download vion and enjoy offline playing!!! \n https://play.google.com/store/apps/details?id=com.vion',
     });
   };
 
@@ -65,6 +65,7 @@ class Custom extends React.PureComponent {
             onPress={() => {
               this._Share();
             }}
+            activeOpacity={1}
             style={{
               flexDirection: 'row',
               width: '100%',
