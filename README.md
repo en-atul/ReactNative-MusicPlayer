@@ -2,13 +2,12 @@
 
 
 
-steps to run the project
+steps to run the project</br>
 <b> install node ,if not installed </b> link <a href="https://nodejs.org/en/">node.js</a>
 
-
-# open cmd from root directory of this project
-# run command "npm install" to install the required dependency
-# then "npm start" to run the project
+<b> open cmd from root directory of this project</b>
+<b> run command "npm install" to install the required dependency</b>
+<b> then "npm start" to run the project</b>
 
 
 
