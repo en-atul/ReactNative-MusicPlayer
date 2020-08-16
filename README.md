@@ -4,6 +4,7 @@
 
 steps to run the project</br>
 <b> install node ,if not installed </b> link <a href="https://nodejs.org/en/">node.js</a></br>
+<p>setup development environment for <b>react native</b> link <a href="https://reactnative.dev/docs/environment-setup">react-native</a></p>
 
 <p><b>step 1</b>: open cmd from root directory of the project</p></br>
 <p><b>step 2</b>: run command "<b>npm install</b>" to install the required dependency</p></br>
