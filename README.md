@@ -3,10 +3,10 @@
 
 
 steps to run the prohect
-#install node ,if not istalled already
-#open cmd from root directory of this project
-#run command "npm install" to install the required dependency
-#then "npm start" to run the project
+# install node ,if not istalled already
+# open cmd from root directory of this project
+# run command "npm install" to install the required dependency
+# then "npm start" to run the project
 
 
 
