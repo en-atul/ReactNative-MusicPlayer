@@ -4,7 +4,7 @@
 
 steps to run the project</br>
 <b> install node ,if not installed </b> link <a href="https://nodejs.org/en/">node.js</a></br>
-<p>setup development environment for <b>react native</b> link <a href="https://reactnative.dev/docs/environment-setup">react-native-cli</a></p>  
+<p>setup development environment for <b>react native</b> link <a href="https://reactnative.dev/docs/environment-setup">react-native-cli-Quickstart</a></p>  
 
 <p><b>step 1</b>: open cmd from root directory of the project</p></br>
 <p><b>step 2</b>: run command "<b>npm install</b>" to install the required dependency</p></br>
@@ -25,14 +25,12 @@ steps to run the project</br>
   
   
 <div style="display:flex;width:auto;height:auto;">
- <img src="screenshots/img1.png" width="200px" height="400px"/>
+  <img src="screenshots/img1.png" width="200px" height="400px"/>
   <img src="screenshots/img2.png" width="200px" height="400px"/>
   <img src="screenshots/img3.png" width="200px" height="400px"/>
   <img src="screenshots/img4.png" width="200px" height="400px"/>
   <img src="screenshots/img5.png" width="200px" height="400px"/>
-   
-    
-  <div>
+<div>
     
     
   
