@@ -6,6 +6,9 @@ steps to run the project</br>
 <b> install node ,if not installed </b> link <a href="https://nodejs.org/en/">node.js</a></br>
 
 <b> open cmd from root directory of this project</b></br>
+
+
+
 <b> run command "npm install" to install the required dependency</b></br>
 <b> then "npm start" to run the project</b>
 
