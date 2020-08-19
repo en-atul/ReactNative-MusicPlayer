@@ -20,7 +20,6 @@ import {
 } from 'react-native';
 import {ThemeProvider} from 'styled-components/native';
 import * as themes from '../themes';
-import BottomMenu from './BottomMenu';
 import {addFavorite, deleteFavorite} from '../redux/actions/favorite';
 import {
   setPlayback,

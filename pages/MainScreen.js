@@ -17,13 +17,10 @@ import {
 import {useSelector} from 'react-redux';
 import {EventRegister} from 'react-native-event-listeners';
 import Menu from 'react-native-vector-icons/Feather';
-<<<<<<< HEAD
 import {withTheme} from 'styled-components/native';
 import * as actions from '../redux/actions';
 import {connect} from 'react-redux';
 import BottomNowPlaying from '../components/BottomNowPlaying';
-=======
->>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 
 import Songs from '../components/Songs';
 import Details from '../components/Details';
@@ -40,7 +37,6 @@ function MainScreen(props) {
 
     props.navigation.navigate(path);
   };
-<<<<<<< HEAD
 
   const {
     current,
@@ -57,13 +53,6 @@ function MainScreen(props) {
     border1,
   } = props.theme;
 
-=======
-  const bg = theme !== 'light' ? '#fff' : '#3e3e3e';
-  const sideMenu = '#2EC7FC';
-  const bg2 = theme !== 'light' ? '#000' : '#fff';
-  const border1 = theme !== 'light' ? '#000' : '#eee';
-  const header = theme !== 'light' ? '#000' : '#fff';
->>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
   return (
     <View style={[styles.container, {backgroundColor: bg2}]}>
       <View
@@ -134,14 +123,6 @@ function MainScreen(props) {
         </Banner>
         <Songs />
       </View>
-<<<<<<< HEAD
-=======
-      {/* <Modal isVisible={true} animationInTiming={750}>
-        <View style={{flex: 1}}>
-          <Text>I am the modal content!</Text>
-        </View>
-      </Modal> */}
->>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
     </View>
   );
 }
@@ -193,8 +174,4 @@ const styles = StyleSheet.create({
   },
 });
 
-<<<<<<< HEAD
 export default connect('', actions)(withTheme(React.memo(MainScreen)));
-=======
-export default React.memo(MainScreen);
->>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f

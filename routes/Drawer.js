@@ -41,11 +41,8 @@ import Folder from '../pages/FolderScreen';
 import PlaylistSong from '../components/PlaylistSong';
 import AddSongToPlaylist from '../components/AddSongToPlaylist';
 import LibrarySong from '../components/LibrarySong';
-<<<<<<< HEAD
 import NowPlaying from '../components/NowPlaying';
 import BottomNowPlaying from '../components/BottomNowPlaying';
-=======
->>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 
 import Ion from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -152,7 +149,6 @@ function MyDrawer() {
     );
   }
 
-<<<<<<< HEAD
   createTab = (props) => (
     <>
       <Tab.Navigator
@@ -270,131 +266,12 @@ function MyDrawer() {
           </>
         </Stack.Navigator>
       </>
-=======
-  createTab = () => (
-    <Tab.Navigator
-      initialRouteName="Home"
-      activeColor={bg2}
-      inactiveColor={inactive}
-      shifting={false}
-      backBehavior="history"
-      barStyle={{
-        backgroundColor: bg,
-        fontSize: 7,
-        borderColor: 'transparent',
-        borderTopColor: border,
-        borderWidth: 0.5,
-        height: 60,
-      }}>
-      <Tab.Screen
-        name="Track"
-        component={MainScreen}
-        options={{
-          tabBarLabel: 'Track',
-          tabBarIcon: ({focused, tintColor}) => (
-            <Iconn
-              name="music-circle-outline"
-              color={focused ? bg2 : inactive}
-              size={23}
-              style={{fontWeight: '100'}}
-            />
-          ),
-        }}
-      />
-
-      <Tab.Screen
-        name="Search"
-        component={SearchScreen}
-        options={{
-          tabBarLabel: 'Search',
-          tabBarIcon: ({focused, tintColor}) => (
-            <Icon
-              name="search1"
-              color={focused ? bg2 : inactive}
-              size={21}
-              style={{fontWeight: '100'}}
-            />
-          ),
-        }}
-      />
-
-      <Tab.Screen
-        name="Library"
-        component={libraryStack}
-        options={{
-          tabBarLabel: 'Library',
-          tabBarIcon: ({focused, tintColor}) => (
-            <Icon
-              name="minuscircleo"
-              color={focused ? bg2 : inactive}
-              size={21}
-              style={{fontWeight: '100'}}
-            />
-          ),
-        }}
-      />
-
-      <Tab.Screen
-        name="PlaylistScreen"
-        component={playlistStack}
-        options={{
-          tabBarLabel: 'Playlist',
-          tabBarIcon: ({focused, tintColor}) => (
-            <Iconn
-              name="playlist-music-outline"
-              color={focused ? bg2 : inactive}
-              size={25}
-              style={{fontWeight: '100'}}
-            />
-          ),
-        }}
-      />
-
-      <Tab.Screen
-        name="Favorite"
-        component={FavoriteScreen}
-        options={{
-          tabBarLabel: 'Favorite',
-          tabBarIcon: ({focused, tintColor}) => (
-            <Ion
-              name="heart-outline"
-              color={focused ? bg2 : inactive}
-              size={23}
-              style={{fontWeight: '100'}}
-            />
-          ),
-        }}
-      />
-    </Tab.Navigator>
-  );
-
-  function createStack() {
-    const isDrawerOpen = useIsDrawerOpen();
-    React.useEffect(() => {
-      if (isDrawerOpen) {
-        EventRegister.emit('hide', true);
-      } else {
-        EventRegister.emit('hide', false);
-      }
-    }, [isDrawerOpen]);
-    return (
-      <Stack.Navigator headerMode="none">
-        <>
-          <Stack.Screen name="Main" children={createTab} />
-        </>
-      </Stack.Navigator>
->>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
     );
   }
 
   return (
-<<<<<<< HEAD
     <>
       <NavigationContainer>
-=======
-    <NavigationContainer>
-      <ThemeProvider theme={themes[theme]}>
->>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
         <Drawer.Navigator
           drawerStyle={{
             height: '100%',
@@ -449,13 +326,8 @@ function MyDrawer() {
             }}
           />
         </Drawer.Navigator>
-<<<<<<< HEAD
       </NavigationContainer>
     </>
-=======
-      </ThemeProvider>
-    </NavigationContainer>
->>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
   );
 }
 

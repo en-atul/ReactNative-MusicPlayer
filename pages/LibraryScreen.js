@@ -17,25 +17,12 @@ import {
   Animated,
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-<<<<<<< HEAD
 import Menu from 'react-native-vector-icons/Feather';
 import {withTheme} from 'styled-components/native';
 import * as actions from '../redux/actions';
 import {connect} from 'react-redux';
 import _ from 'underscore';
 
-=======
-import {addPlaylist, deletePlaylist} from '../redux/actions/playlist';
-import Menu from 'react-native-vector-icons/Feather';
-import Icon from 'react-native-vector-icons/Ionicons';
-
-import Modal from 'react-native-modal';
-import _ from 'underscore';
-
-import Swipeable from 'react-native-gesture-handler/Swipeable';
-import {ScrollView} from 'react-native-gesture-handler';
-
->>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 const arr = [
   {id: 'album', nav: 'Album'},
   {id: 'artist', nav: 'Artist'},
@@ -44,11 +31,7 @@ const arr = [
   {id: 'recently played', nav: 'RecentlyPlayed'},
 ];
 
-<<<<<<< HEAD
 function LibraryScreen(props) {
-=======
-export default function PlayistScreen(props) {
->>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
   const [select, setSelect] = React.useState(false);
 
   const dispatch = useDispatch();
@@ -57,18 +40,7 @@ export default function PlayistScreen(props) {
   const {albums, artists} = useSelector((state) => state.data);
   const {recentlyPlayed, mostPlayed} = useSelector((state) => state.history);
 
-<<<<<<< HEAD
   const {txt, header, bg, bg2, border1} = props.theme;
-=======
-  const bg = theme !== 'light' ? '#fff' : '#24292e';
-  const bg2 = theme !== 'light' ? '#000' : '#fff';
-  const txt = theme !== 'light' ? '#fff' : '#212121';
-  const txt2 = theme !== 'light' ? '#6b6b6b' : '#212121';
-  const border1 = theme !== 'light' ? '#121212' : '#eee';
-  const bc = theme !== 'light' ? '#0e0e0e' : '#fafafa';
-  const header = theme !== 'light' ? '#000' : '#fff';
-  const modal = theme !== 'light' ? '#121212' : '#fff';
->>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 
   let data = _.groupBy(songs, 'folder');
   let folder = Object.keys(data);
@@ -265,7 +237,4 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 });
-<<<<<<< HEAD
 export default connect('', actions)(withTheme(LibraryScreen));
-=======
->>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f

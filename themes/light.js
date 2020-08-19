@@ -16,10 +16,8 @@ export const light = {
   txt: '#212121',
   border1: '#eee',
   header: '#fff',
-<<<<<<< HEAD
+
   txt2: '#212121',
   bc: '#fafafa',
   ph: '#BCBABA',
-=======
->>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 };

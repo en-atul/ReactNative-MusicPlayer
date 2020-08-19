@@ -122,11 +122,7 @@ const Wrapper = styled.View`
   flex-direction: column;
   align-items: center;
   position: absolute;
-<<<<<<< HEAD
   bottom: 45.6px;
-=======
-  bottom: 45.7px;
->>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 `;
 
 const Time = styled.Text`
