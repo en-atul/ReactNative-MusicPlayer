@@ -37,9 +37,7 @@ import Icon2 from 'react-native-vector-icons/Entypo';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import TrackPlayer from 'react-native-track-player';
-import {EventRegister} from 'react-native-event-listeners';
 import {withTheme} from 'styled-components/native';
-import {Badge} from 'react-native-paper';
 import {useDispatch, useSelector} from 'react-redux';
 import ProgressSlider from './ProgressSlider';
 
