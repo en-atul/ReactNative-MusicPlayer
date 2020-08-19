@@ -28,18 +28,14 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import TrackPlayer from 'react-native-track-player';
 import {withTheme} from 'styled-components/native';
-
 import {EventRegister} from 'react-native-event-listeners';
-
 import {useDispatch, useSelector} from 'react-redux';
 
 TrackPlayer.setupPlayer();
 
 function BottomNowPlaying(props) {
-  const [hide, setHide] = useState(false);
-
+  const [pos, setPos] = useState(false);
   const dispatch = useDispatch();
-  const {theme} = useSelector((state) => state.settings);
   const {songs} = useSelector((state) => state.data);
 
   const {currentTrack, shuffle, isPlaying, queue, queueSong} = useSelector(
@@ -48,11 +44,12 @@ function BottomNowPlaying(props) {
 
   const {txt, txt2, bc, border} = props.theme;
 
-  // useEffect(() => {
-  //   EventRegister.addEventListener('shift', (data) => {
-  //     setPos(data);
-  //     EventRegister.removeEventListener('shift');
-  //   });
+  useEffect(() => {
+    EventRegister.addEventListener('shift', (data) => {
+      setPos(data);
+      EventRegister.removeEventListener('shift');
+    });
+  });
 
   function skipToNext() {
     if (queue) {
@@ -85,6 +82,7 @@ function BottomNowPlaying(props) {
           borderBottomColor: border,
           borderColor: 'transparent',
           backgroundColor: bc,
+          bottom: pos ? 0 : 60,
         },
       ]}
       activeOpacity={1}>
@@ -129,7 +127,7 @@ function BottomNowPlaying(props) {
     </View>
   );
 
-  return <>{currentTrack.title !== '' && !hide && <Bar />}</>;
+  return <>{currentTrack.title !== '' && <Bar />}</>;
 }
 
 const styles = StyleSheet.create({
@@ -162,8 +160,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'center',
     marginLeft: 2,
-
-    // lineHeight: 40,
   },
   controller: {
     width: '25%',

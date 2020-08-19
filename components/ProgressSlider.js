@@ -5,7 +5,6 @@ import {connect} from 'react-redux';
 import * as actions from '../redux/actions';
 import TrackPlayer, {ProgressComponent} from 'react-native-track-player';
 import Slider from 'react-native-slider';
-import {contrastTransColor} from '../themes/styles';
 import * as Animatable from 'react-native-animatable';
 
 const ScreenWidth = Dimensions.get('window').width;
