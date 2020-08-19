@@ -39,7 +39,7 @@ function SettingScreen(props) {
   };
 
   const {current, background, border, txtColor} = props.theme;
-  console.log(props.theme);
+
   React.useEffect(() => {
     setIsSwitchOn(current === 'light' ? false : true);
   }, []);

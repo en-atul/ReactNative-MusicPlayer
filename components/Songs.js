@@ -18,9 +18,9 @@ import {
 import {useSelector, useDispatch} from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {EventRegister} from 'react-native-event-listeners';
-import TrackPlayer from 'react-native-track-player';
 import {setCurrentTrack} from '../redux/actions/playback';
 import BottomMenu from './BottomMenu';
+import {withTheme} from 'styled-components/native';
 
 function Item({item, bc, border, txtColor}) {
   return (
@@ -65,10 +65,7 @@ function MainScreen(props) {
   const data = useSelector((state) => state.data);
 
   const {songs} = data;
-  const {theme} = useSelector((state) => state.settings);
-  const bg2 = theme !== 'light' ? '#0e0e0e' : '#fff';
-  const txt = theme !== 'light' ? '#fdfdfd' : '#121212';
-  const border1 = theme !== 'light' ? '#121212' : '#ecf1f7';
+  const {bg2, txt, border1} = props.theme;
 
   const push = (data) => {
     dispatch(setCurrentTrack(data));
@@ -147,4 +144,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default React.memo(MainScreen);
+export default withTheme(React.memo(MainScreen));
