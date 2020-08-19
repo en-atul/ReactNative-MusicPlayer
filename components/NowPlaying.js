@@ -99,7 +99,7 @@ function PlayingSong(props) {
   const scrollA = React.useRef(new Animated.Value(0)).current;
 
   const unRecognized = theme !== 'light' ? '#ccc' : '#121212';
-  const bg2 = theme !== 'light' ? '#000' : '#fff';
+  const bg2 = theme !== 'light' ? '#0e0e0e' : '#fff';
   const txt = theme !== 'light' ? '#fff' : '#24292e';
   const txt2 = theme !== 'light' ? '#6b6b6b' : '#999';
   const border1 = theme !== 'light' ? '#121212' : '#eee';

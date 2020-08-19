@@ -722,4 +722,7 @@ const mapActionsToProps = {
   setCurrentTrack,
 };
 
-export default connect(mapStateToProps, mapActionsToProps)(SearchScreen);
+export default connect(
+  mapStateToProps,
+  mapActionsToProps,
+)(withTheme(SearchScreen));

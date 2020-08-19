@@ -98,72 +98,60 @@ function BottomNowPlaying(props) {
 
   const Bar = () => (
     <View
-      style={{
-        height: 120,
-        width: '100%',
-        position: 'absolute',
-        bottom: 0,
-      }}>
-      <View
-        style={[
-          styles.playing,
-          {
-            borderTopColor: panel ? 'transparent' : border1,
-            borderBottomColor: panel ? 'transparent' : border1,
-            borderColor: 'transparent',
-            backgroundColor: bc,
-          },
-        ]}
-        activeOpacity={1}>
-        {!panel && (
-          <View style={{flexDirection: 'row'}}>
-            <View style={styles.thumbnail}>
-              {currentTrack.artwork ? (
-                <Image
-                  source={{uri: currentTrack.artwork}}
-                  style={styles.thumbnailCover}
-                />
-              ) : (
-                <Icon
-                  name="ios-musical-notes-outline"
-                  size={30}
-                  color="#212121"
-                />
-              )}
-            </View>
-            <TouchableOpacity
-              style={styles.title}
-              onPress={() => props.nav.navigate('NowPlaying')}>
-              <Text
-                numberOfLines={1}
-                style={{
-                  fontWeight: '700',
-                  fontFamily: 'sans-serif-light',
-                  color: txt,
-                }}>
-                {currentTrack.title}
-              </Text>
-              <Text numberOfLines={1} style={{fontSize: 11, color: txt2}}>
-                {currentTrack.artist || 'unknown'}
-              </Text>
-            </TouchableOpacity>
-            <View style={styles.controller}>
-              <TouchableWithoutFeedback
-                onPress={() => dispatch(setPlayback(!isPlaying))}>
-                <Ion
-                  name={isPlaying ? 'pause' : 'play'}
-                  size={35}
-                  color={txt}
-                />
-              </TouchableWithoutFeedback>
-
-              <TouchableOpacity onPress={() => skipToNext()}>
-                <Ion name="ios-play-skip-forward" size={25} color={txt} />
-              </TouchableOpacity>
-            </View>
+      style={[
+        styles.playing,
+        {
+          borderTopColor: panel ? 'transparent' : border1,
+          borderBottomColor: panel ? 'transparent' : border1,
+          borderColor: 'transparent',
+          backgroundColor: bc,
+        },
+      ]}
+      activeOpacity={1}>
+      {!panel && (
+        <View style={{flexDirection: 'row'}}>
+          <View style={styles.thumbnail}>
+            {currentTrack.artwork ? (
+              <Image
+                source={{uri: currentTrack.artwork}}
+                style={styles.thumbnailCover}
+              />
+            ) : (
+              <Icon
+                name="ios-musical-notes-outline"
+                size={30}
+                color="#212121"
+              />
+            )}
           </View>
-        )}
-      </View>
+          <TouchableOpacity
+            style={styles.title}
+            onPress={() => props.nav.navigate('NowPlaying')}>
+            <Text
+              numberOfLines={1}
+              style={{
+                fontWeight: '700',
+                fontFamily: 'sans-serif-light',
+                color: txt,
+              }}>
+              {currentTrack.title}
+            </Text>
+            <Text numberOfLines={1} style={{fontSize: 11, color: txt2}}>
+              {currentTrack.artist || 'unknown'}
+            </Text>
+          </TouchableOpacity>
+          <View style={styles.controller}>
+            <TouchableWithoutFeedback
+              onPress={() => dispatch(setPlayback(!isPlaying))}>
+              <Ion name={isPlaying ? 'pause' : 'play'} size={35} color={txt} />
+            </TouchableWithoutFeedback>
+
+            <TouchableOpacity onPress={() => skipToNext()}>
+              <Ion name="ios-play-skip-forward" size={25} color={txt} />
+            </TouchableOpacity>
+          </View>
+        </View>
+      )}
     </View>
   );
 
@@ -175,7 +163,6 @@ const styles = StyleSheet.create({
     width: 55,
     height: 55,
     borderRadius: 5,
-    backgroundColor: '#fff',
   },
 
   playing: {
@@ -186,6 +173,8 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: '#eee',
     flexDirection: 'column',
+    position: 'absolute',
+    bottom: 60,
   },
   thumbnail: {
     width: '15%',

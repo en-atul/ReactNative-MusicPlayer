@@ -16,8 +16,8 @@ import {connect} from 'react-redux';
 
 function ArtistScreen(props) {
   const {artists} = useSelector((state) => state.data);
-
   const {txt, header, bg, bg2, border1} = props.theme;
+
   function Item2({data, index, arr, bc, border, txtColor}) {
     return (
       <View

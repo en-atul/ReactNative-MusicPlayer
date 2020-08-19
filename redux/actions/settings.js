@@ -4,7 +4,7 @@ export const toggleTheme = (theme) => {
   if (theme === 'light') {
     changeNavigationBarColor('#ffffff', true);
   } else {
-    changeNavigationBarColor('#000000', true);
+    changeNavigationBarColor('#0e0e0e', true);
   }
   return {type: 'THEME', payload: theme};
 };

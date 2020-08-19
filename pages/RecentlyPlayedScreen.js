@@ -21,6 +21,8 @@ import {setCurrentTrack, setQueue} from '../redux/actions/playback';
 import Menu from 'react-native-vector-icons/Feather';
 import BottomMenu from '../components/BottomMenu';
 import {withTheme} from 'styled-components/native';
+import * as actions from '../redux/actions';
+import {connect} from 'react-redux';
 
 function Item2({data, index, bc, border, txtColor}) {
   return (
@@ -52,7 +54,6 @@ function RecentlyPlayed(props) {
   const dispatch = useDispatch();
 
   const {recentlyPlayed} = useSelector((state) => state.history);
-  const {theme} = useSelector((state) => state.settings);
 
   const {txt, header, bg, bg2, border1} = props.theme;
 
@@ -261,4 +262,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-export default React.memo(RecentlyPlayed);
+export default connect('', actions)(withTheme(React.memo(RecentlyPlayed)));

@@ -66,7 +66,7 @@ function MainScreen(props) {
 
   const {songs} = data;
   const {theme} = useSelector((state) => state.settings);
-  const bg2 = theme !== 'light' ? '#000' : '#fff';
+  const bg2 = theme !== 'light' ? '#0e0e0e' : '#fff';
   const txt = theme !== 'light' ? '#fdfdfd' : '#121212';
   const border1 = theme !== 'light' ? '#121212' : '#ecf1f7';
 

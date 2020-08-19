@@ -52,7 +52,6 @@ import Iconn from 'react-native-vector-icons/MaterialCommunityIcons';
 import HomeIcon from '../icon';
 
 import {useSelector} from 'react-redux';
-import {useIsDrawerOpen} from '@react-navigation/drawer';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -61,11 +60,11 @@ const Tab = createMaterialBottomTabNavigator();
 function MyDrawer() {
   const {theme} = useSelector((state) => state.settings);
 
-  const bg = theme !== 'light' ? '#000' : '#fdfdfd';
+  const bg = theme !== 'light' ? '#0e0e0e' : '#fdfdfd';
   const drawerbg = theme !== 'light' ? '#000' : '#fff';
   const color = theme !== 'light' ? '#29292a' : '#6b6b6b';
   const active = theme !== 'light' ? '#6b6b6b' : '#000';
-  const fullBack = theme !== 'light' ? '#000000' : '#00000000';
+  const fullBack = theme !== 'light' ? '#0e0e0e' : '#00000000';
   const bg2 = theme !== 'light' ? '#ccc' : '#6b6b6b';
   const border = theme !== 'light' ? '#0e0e0e' : '#f0f0f3';
   const inactive = theme !== 'light' ? '#414141' : '#b9b9b9';
