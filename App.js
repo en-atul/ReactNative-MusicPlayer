@@ -7,22 +7,13 @@
  */
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import Container from './pages/Container';
 import {Provider} from 'react-redux';
 import {store, persistor} from './redux/store';
 import {PersistGate} from 'redux-persist/integration/react';
 import SetUpPlayer from './util/setUpTrackPlayer';
 import TrackPlayer from 'react-native-track-player';
-import {ThemeProvider} from 'styled-components/native';
-import * as themes from './themes';
 
 const App = () => {
   const {
