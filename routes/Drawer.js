@@ -270,62 +270,64 @@ function MyDrawer() {
 
   return (
     <>
-      <NavigationContainer>
-        <Drawer.Navigator
-          drawerStyle={{
-            height: '100%',
-            width: '70%',
-            backgroundColor: drawerbg,
-            zIndex: 9,
-          }}
-          drawerContentOptions={{
-            activeTintColor: active,
-            backgroundColor: fullBack,
-            inactiveTintColor: color,
-            labelStyle: {
-              fontSize: 13,
-              marginLeft: -17,
-              fontFamily: 'sans-serif-medium',
-            },
-            activeBackgroundColor: '#00000000',
-          }}
-          drawerContent={(props) => <Custom {...props} />}
-          initialRouteName="Home"
-          drawerType="front"
-          overlayColor="#0000004a"
-          edgeWidth={0}
-          backBehavior="initialRoute">
-          <Drawer.Screen
-            name="Home"
-            children={createStack}
-            options={{
-              drawerIcon: ({focused, color}) => (
-                <HomeIcon
-                  name="home"
-                  size={13}
-                  color={color}
-                  style={{marginLeft: 12}}
-                />
-              ),
+      <ThemeProvider theme={themes[theme]}>
+        <NavigationContainer>
+          <Drawer.Navigator
+            drawerStyle={{
+              height: '100%',
+              width: '70%',
+              backgroundColor: drawerbg,
+              zIndex: 9,
             }}
-          />
+            drawerContentOptions={{
+              activeTintColor: active,
+              backgroundColor: fullBack,
+              inactiveTintColor: color,
+              labelStyle: {
+                fontSize: 13,
+                marginLeft: -17,
+                fontFamily: 'sans-serif-medium',
+              },
+              activeBackgroundColor: '#00000000',
+            }}
+            drawerContent={(props) => <Custom {...props} />}
+            initialRouteName="Home"
+            drawerType="front"
+            overlayColor="#0000004a"
+            edgeWidth={0}
+            backBehavior="initialRoute">
+            <Drawer.Screen
+              name="Home"
+              children={createStack}
+              options={{
+                drawerIcon: ({focused, color}) => (
+                  <HomeIcon
+                    name="home"
+                    size={13}
+                    color={color}
+                    style={{marginLeft: 12}}
+                  />
+                ),
+              }}
+            />
 
-          <Drawer.Screen
-            name="Setting"
-            component={SettingScreen}
-            options={{
-              drawerIcon: ({focused, color}) => (
-                <Icon
-                  name="setting"
-                  size={15}
-                  color={color}
-                  style={{marginLeft: 10}}
-                />
-              ),
-            }}
-          />
-        </Drawer.Navigator>
-      </NavigationContainer>
+            <Drawer.Screen
+              name="Setting"
+              component={SettingScreen}
+              options={{
+                drawerIcon: ({focused, color}) => (
+                  <Icon
+                    name="setting"
+                    size={15}
+                    color={color}
+                    style={{marginLeft: 10}}
+                  />
+                ),
+              }}
+            />
+          </Drawer.Navigator>
+        </NavigationContainer>
+      </ThemeProvider>
     </>
   );
 }

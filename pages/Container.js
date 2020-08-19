@@ -44,7 +44,7 @@ function Container(props) {
 
   const bc = theme === 'light' ? '#fff' : '#0e0e0e';
   const bar = theme === 'light' ? 'dark-content' : 'light-content';
-
+  console.log('from container ---------', theme);
   return (
     <View
       style={{

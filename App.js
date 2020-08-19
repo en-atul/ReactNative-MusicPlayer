@@ -27,7 +27,6 @@ import * as themes from './themes';
 const App = () => {
   const {
     playback: {currentTrack},
-    settings: {theme},
   } = store.getState();
 
   React.useEffect(() => {
@@ -40,9 +39,7 @@ const App = () => {
     <View style={styles.container}>
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <ThemeProvider theme={themes[theme]}>
-            <Container />
-          </ThemeProvider>
+          <Container />
         </PersistGate>
       </Provider>
     </View>

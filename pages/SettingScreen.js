@@ -32,10 +32,8 @@ function SettingScreen(props) {
   const onToggleSwitch = () => {
     if (!isSwitchOn) {
       dispatch(props.toggleTheme('dark'));
-      console.log('setting dark.....');
     } else {
       dispatch(props.toggleTheme('light'));
-      console.log('setting light.....');
     }
     setIsSwitchOn(!isSwitchOn);
   };
