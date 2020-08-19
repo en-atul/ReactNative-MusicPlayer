@@ -20,7 +20,10 @@ import {useSelector, useDispatch} from 'react-redux';
 import {setCurrentTrack, setQueue} from '../redux/actions/playback';
 import Menu from 'react-native-vector-icons/Feather';
 import BottomMenu from '../components/BottomMenu';
+<<<<<<< HEAD
 import {withTheme} from 'styled-components/native';
+=======
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 
 function Item2({data, index, bc, border, txtColor}) {
   return (
@@ -54,7 +57,15 @@ function RecentlyPlayed(props) {
   const {recentlyPlayed} = useSelector((state) => state.history);
   const {theme} = useSelector((state) => state.settings);
 
+<<<<<<< HEAD
   const {txt, header, bg, bg2, border1} = props.theme;
+=======
+  const bg = theme !== 'light' ? '#fff' : '#24292e';
+  const bg2 = theme !== 'light' ? '#000' : '#fff';
+  const txt = theme !== 'light' ? '#ccc' : '#212121';
+  const border1 = theme !== 'light' ? '#121212' : '#eee';
+  const header = theme !== 'light' ? '#000' : '#fff';
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 
   React.useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);

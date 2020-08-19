@@ -28,6 +28,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {EventRegister} from 'react-native-event-listeners';
 import Toast from '../components/Toast';
 import Modal from 'react-native-modal';
+<<<<<<< HEAD
 import {withTheme} from 'styled-components/native';
 import * as actions from '../redux/actions';
 import {connect} from 'react-redux';
@@ -35,6 +36,12 @@ import {connect} from 'react-redux';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 function PlayistScreen(props) {
+=======
+
+import Swipeable from 'react-native-gesture-handler/Swipeable';
+
+export default function PlayistScreen(props) {
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState('');
 
@@ -45,8 +52,19 @@ function PlayistScreen(props) {
   const {playlist, playlistSongs} = useSelector((state) => state.playlist);
   const {theme} = useSelector((state) => state.settings);
 
+<<<<<<< HEAD
   const {current, txt, header, bg, bg2, border1} = props.theme;
   const modal = current !== 'light' ? '#121212' : '#fff';
+=======
+  const bg = theme !== 'light' ? '#fff' : '#24292e';
+  const bg2 = theme !== 'light' ? '#000' : '#fff';
+  const txt = theme !== 'light' ? '#fff' : '#212121';
+  const txt2 = theme !== 'light' ? '#6b6b6b' : '#212121';
+  const border1 = theme !== 'light' ? '#121212' : '#eee';
+  const bc = theme !== 'light' ? '#0e0e0e' : '#fafafa';
+  const header = theme !== 'light' ? '#000' : '#fff';
+  const modal = theme !== 'light' ? '#121212' : '#fff';
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 
   React.useEffect(() => {
     Keyboard.addListener('keyboardDidShow', () => {
@@ -522,4 +540,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 });
+<<<<<<< HEAD
 export default connect('', actions)(withTheme(React.memo(PlayistScreen)));
+=======
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f

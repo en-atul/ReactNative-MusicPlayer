@@ -16,6 +16,10 @@ import Menu from 'react-native-vector-icons/Feather';
 import {Switch} from 'react-native-paper';
 import * as actions from '../redux/actions';
 import RNFetchBlob from 'rn-fetch-blob';
+<<<<<<< HEAD
+=======
+import {useFocusEffect} from '@react-navigation/native';
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 import {connect} from 'react-redux';
 
 const clearCache = async () => {
@@ -30,6 +34,18 @@ function SettingScreen(props) {
   const [isSwitchOn, setIsSwitchOn] = React.useState(false);
   const dispatch = useDispatch();
 
+<<<<<<< HEAD
+=======
+  useFocusEffect(
+    React.useCallback(() => {
+      EventRegister.emit('shift', true);
+      return () => {
+        EventRegister.emit('shift', false);
+      };
+    }, []),
+  );
+
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
   const onToggleSwitch = () => {
     if (!isSwitchOn) {
       dispatch(props.toggleTheme('dark'));

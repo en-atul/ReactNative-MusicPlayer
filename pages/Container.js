@@ -20,7 +20,11 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import LottieView from 'lottie-react-native';
 import {useSelector, useDispatch} from 'react-redux';
+<<<<<<< HEAD
 import BottomNowPlaying from '../components/BottomNowPlaying';
+=======
+import NowPlaying from '../components/NowPlaying';
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 import {toggleTheme} from '../redux/actions/settings';
 import SplashScreen from 'react-native-splash-screen';
 
@@ -92,6 +96,10 @@ function Container(props) {
           )}
         </View>
       )}
+<<<<<<< HEAD
+=======
+      <NowPlaying />
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
     </View>
   );
 }
@@ -107,6 +115,10 @@ const styles = StyleSheet.create({
 });
 
 Container.propTypes = {
+<<<<<<< HEAD
+=======
+  //data: PropTypes.object.isRequired,
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
   getMedia: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({

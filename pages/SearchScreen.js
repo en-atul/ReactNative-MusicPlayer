@@ -20,7 +20,10 @@ import {
 } from 'react-native';
 import {EventRegister} from 'react-native-event-listeners';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+<<<<<<< HEAD
 import {withTheme} from 'styled-components/native';
+=======
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -262,9 +265,22 @@ class SearchScreen extends React.PureComponent {
     const {movies, artist, started, selectarr, select} = this.state;
 
     const {searched} = this.props.search;
+<<<<<<< HEAD
 
     const {txt, txt2, bc, ph, header, bg, bg2, border1} = this.props.theme;
 
+=======
+    const {theme} = this.props.settings;
+
+    const bg = theme !== 'light' ? '#fff' : '#24292e';
+    const bg2 = theme !== 'light' ? '#000' : '#fff';
+    const txt = theme !== 'light' ? '#fff' : '#121212';
+    const txt2 = theme !== 'light' ? '#6b6b6b' : '#212121';
+    const border1 = theme !== 'light' ? '#121212' : '#eee';
+    const bc = theme !== 'light' ? '#0e0e0e' : '#fafafa';
+    const header = theme !== 'light' ? '#000' : '#fff';
+    const ph = theme !== 'light' ? '#999' : '#BCBABA';
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
     return (
       <View style={[styles.container, {backgroundColor: bg2}]}>
         <View
@@ -626,6 +642,10 @@ const styles = StyleSheet.create({
     borderColor: '#eee',
     textAlign: 'center',
     borderWidth: 1,
+<<<<<<< HEAD
+=======
+
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
     backgroundColor: '#fdfdfd',
   },
   item: {
@@ -633,6 +653,10 @@ const styles = StyleSheet.create({
     height: 70,
     width: '100%',
     overflow: 'hidden',
+<<<<<<< HEAD
+=======
+
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
     borderWidth: 0.7,
     borderColor: 'transparent',
     borderBottomColor: '#ecf1f7',
@@ -642,6 +666,10 @@ const styles = StyleSheet.create({
   itemTxt: {
     marginLeft: 10,
     fontSize: 12,
+<<<<<<< HEAD
+=======
+
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
     borderRadius: 10,
     fontFamily: 'sans-serif-medium',
   },
@@ -653,6 +681,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: '100%',
     flexDirection: 'row',
+<<<<<<< HEAD
+=======
+    // backgroundColor: '#fff',
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
   },
   item2: {
     marginLeft: 10,
@@ -676,6 +708,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#fafafa',
     alignItems: 'center',
     justifyContent: 'center',
+<<<<<<< HEAD
+=======
+    // borderWidth: 0.7,
+    // borderColor: '#eee',
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
   },
 
   left: {
@@ -715,7 +752,11 @@ const mapActionsToProps = {
   deleteSearchedFile,
   setCurrentTrack,
 };
+<<<<<<< HEAD
 export default connect(
   mapStateToProps,
   mapActionsToProps,
 )(withTheme(SearchScreen));
+=======
+export default connect(mapStateToProps, mapActionsToProps)(SearchScreen);
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f

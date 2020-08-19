@@ -19,17 +19,32 @@ import {
 import {useSelector, useDispatch} from 'react-redux';
 import Menu from 'react-native-vector-icons/Feather';
 import _ from 'underscore';
+<<<<<<< HEAD
 import {withTheme} from 'styled-components/native';
 import * as actions from '../redux/actions';
 import {connect} from 'react-redux';
 
 function FolderScreen(props) {
   const {songs} = useSelector((state) => state.data);
+=======
+
+export default function PlayistScreen(props) {
+  const {songs} = useSelector((state) => state.data);
+  const {theme} = useSelector((state) => state.settings);
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 
   let data = _.groupBy(songs, 'folder');
   let folder = Object.keys(data);
 
+<<<<<<< HEAD
   const {txt, header, bg, bg2, border1} = props.theme;
+=======
+  const bg = theme !== 'light' ? '#fff' : '#24292e';
+  const bg2 = theme !== 'light' ? '#000' : '#fff';
+  const txt = theme !== 'light' ? '#fff' : '#212121';
+  const border1 = theme !== 'light' ? '#121212' : '#eee';
+  const header = theme !== 'light' ? '#000' : '#fff';
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 
   function Item2({data, index, arr, bc, border, txtColor}) {
     let bi = _.groupBy(songs, 'folder');
@@ -215,4 +230,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 });
+<<<<<<< HEAD
 export default connect('', actions)(withTheme(FolderScreen));
+=======
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f

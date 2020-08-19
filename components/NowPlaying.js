@@ -193,22 +193,34 @@ function PlayingSong(props) {
     <View
       style={{
         flexDirection: 'column',
+<<<<<<< HEAD
         height: 65,
         width: '100%',
         position: 'absolute',
         bottom: 0,
+=======
+        height: panel ? 65 : 120,
+        width: '100%',
+        position: 'absolute',
+        bottom: panel ? 0 : pos ? -55 : 5,
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
       }}>
       <View
         style={[
           styles.playing,
           {
             borderTopColor: panel ? 'transparent' : border1,
+<<<<<<< HEAD
 
+=======
+            borderBottomColor: panel ? 'transparent' : border1,
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
             borderColor: 'transparent',
             backgroundColor: bc,
           },
         ]}
         activeOpacity={1}>
+<<<<<<< HEAD
         <View
           style={{
             flexDirection: 'row',
@@ -218,10 +230,61 @@ function PlayingSong(props) {
             alignItems: 'center',
             position: 'absolute',
           }}>
+=======
+        {!panel && (
+          <View style={{flexDirection: 'row'}}>
+            <View style={styles.thumbnail}>
+              {currentTrack.artwork ? (
+                <Image
+                  source={{uri: currentTrack.artwork}}
+                  style={styles.thumbnailCover}
+                />
+              ) : (
+                <Icon
+                  name="ios-musical-notes-outline"
+                  size={30}
+                  color="#212121"
+                />
+              )}
+            </View>
+            <TouchableOpacity style={styles.title} onPress={() => openPanel()}>
+              <Text
+                numberOfLines={1}
+                style={{
+                  fontWeight: '700',
+                  fontFamily: 'sans-serif-light',
+                  color: txt,
+                }}>
+                {currentTrack.title}
+              </Text>
+              <Text numberOfLines={1} style={{fontSize: 11, color: txt2}}>
+                {currentTrack.artist || 'unknown'}
+              </Text>
+            </TouchableOpacity>
+            <View style={styles.controller}>
+              <TouchableWithoutFeedback
+                onPress={() => dispatch(setPlayback(!isPlaying))}>
+                <Ion
+                  name={isPlaying ? 'pause' : 'play'}
+                  size={35}
+                  color={txt}
+                />
+              </TouchableWithoutFeedback>
+
+              <TouchableOpacity onPress={() => skipToNext()}>
+                <Ion name="ios-play-skip-forward" size={25} color={txt} />
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
+
+        {panel && (
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
           <View
             style={{
               flexDirection: 'row',
               width: '100%',
+<<<<<<< HEAD
               height: '100%',
               position: 'absolute',
               top: 0,
@@ -273,12 +336,76 @@ function PlayingSong(props) {
             </TouchableWithoutFeedback>
           </View>
         </View>
+=======
+              height: 64,
+              justifyContent: 'center',
+              alignItems: 'center',
+              position: 'absolute',
+            }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                width: '100%',
+                height: '100%',
+                position: 'absolute',
+                top: 0,
+                justifyContent: 'space-around',
+                alignItems: 'center',
+              }}>
+              <TouchableWithoutFeedback onPress={onLoopPress}>
+                <View style={{flexDirection: 'row'}}>
+                  <Icon name="ios-repeat" size={25} color={txt} />
+                  <Badge
+                    visible={loop}
+                    size={12}
+                    style={{
+                      color: '#fff',
+                      backgroundColor: '#24292e',
+                      position: 'absolute',
+                      right: 2,
+                      top: 3,
+                    }}>
+                    R
+                  </Badge>
+                </View>
+              </TouchableWithoutFeedback>
+              <View
+                style={{
+                  width: '50%',
+                  height: '100%',
+                  flexDirection: 'row',
+                  justifyContent: 'space-around',
+                  alignItems: 'center',
+                }}>
+                <TouchableWithoutFeedback onPress={() => skipToPrevious()}>
+                  <Ion name="ios-play-skip-back" size={33} color={txt} />
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback
+                  onPress={() => dispatch(setPlayback(!isPlaying))}>
+                  <Ion
+                    name={isPlaying ? 'pause' : 'play'}
+                    size={40}
+                    color={txt}
+                  />
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={() => skipToNext()}>
+                  <Ion name="ios-play-skip-forward" size={33} color={txt} />
+                </TouchableWithoutFeedback>
+              </View>
+              <TouchableWithoutFeedback onPress={onShufflePress}>
+                <Icon name="ios-shuffle" size={25} color={txt} />
+              </TouchableWithoutFeedback>
+            </View>
+          </View>
+        )}
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
       </View>
     </View>
   );
 
   return (
     <>
+<<<<<<< HEAD
       {currentTrack.title !== '' && (
         <Animated.ScrollView
           style={{backgroundColor: bg2}}
@@ -417,6 +544,162 @@ function PlayingSong(props) {
         </ThemeProvider>
       </View>
       {currentTrack.title !== '' && <Bar />}
+=======
+      <Modal
+        isVisible={panel}
+        animationInTiming={450}
+        style={{margin: 0, overflow: 'hidden'}}
+        coverScreen={true}
+        backdropOpacity={0.5}
+        backdropColor={bg2}
+        hideModalContentWhileAnimating={true}
+        onBackButtonPress={closePanel}
+        useNativeDriver={true}>
+        {currentTrack.title !== '' && (
+          <Animated.ScrollView
+            style={{backgroundColor: bg2}}
+            onScroll={Animated.event(
+              [{nativeEvent: {contentOffset: {y: scrollA}}}],
+              {useNativeDriver: true},
+            )}
+            scrollEventThrottle={16}>
+            <View style={[styles.bigPlayer, {backgroundColor: bg2}]}>
+              <Animated.View style={styles.coverWrap(scrollA)}>
+                <TouchableOpacity onPress={() => closePanel()}>
+                  <Icon2
+                    name="chevron-small-down"
+                    size={30}
+                    style={{marginLeft: 20, color: '#ccc'}}
+                  />
+                </TouchableOpacity>
+                {currentTrack.artwork ? (
+                  <View
+                    style={{
+                      elevation: 15,
+                      width: '70%',
+                      height: '70%',
+                      backgroundColor: bg2,
+                      borderRadius: 5,
+                    }}>
+                    <Image
+                      source={{uri: currentTrack.artwork}}
+                      style={styles.bigCover}
+                    />
+                  </View>
+                ) : (
+                  <View
+                    style={{
+                      width: '70%',
+                      height: '70%',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                    }}>
+                    <View
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}>
+                      <Icon
+                        name="ios-musical-notes-outline"
+                        size={40}
+                        color={txt}
+                      />
+                    </View>
+                  </View>
+                )}
+                <Text
+                  numberOfLines={1}
+                  style={{
+                    fontWeight: '700',
+                    fontFamily: 'sans-serif-light',
+                    padding: 5,
+                    fontSize: 18,
+                    maxWidth: '70%',
+                    color: txt,
+                  }}>
+                  {currentTrack.title}
+                </Text>
+
+                <Text
+                  numberOfLines={1}
+                  style={{
+                    fontWeight: '700',
+                    fontFamily: 'sans-serif-light',
+                    fontSize: 14,
+                    color: txt2,
+                  }}>
+                  {currentTrack.album || 'unknown'}
+                </Text>
+                <TouchableOpacity
+                  onPress={() => favAction(currentTrack)}
+                  activeOpacity={1}
+                  style={{
+                    width: '20%',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    position: 'absolute',
+                    bottom: 0,
+                  }}>
+                  <Icon
+                    name={
+                      favorite.some((data) => data.url === currentTrack.url)
+                        ? 'ios-heart-sharp'
+                        : 'ios-heart-outline'
+                    }
+                    size={25}
+                    style={{
+                      color: favorite.some(
+                        (data) => data.url === currentTrack.url,
+                      )
+                        ? '#ff3366'
+                        : '#999',
+                      marginTop: 10,
+                    }}
+                  />
+                </TouchableOpacity>
+              </Animated.View>
+
+              {songs.length > 0 &&
+                songs
+                  .slice(currentTrack.index, currentTrack.index + 40)
+                  .map((data, i) => (
+                    <TouchableWithoutFeedback
+                      onPress={() => currentPlay(data)}
+                      key={i}>
+                      <View>
+                        <Item2
+                          data={data}
+                          index={i}
+                          bc={bg2}
+                          border={border1}
+                          txtColor={
+                            data.id === currentTrack.id ? '#36C0FC' : txt
+                          }
+                          un={unRecognized}
+                        />
+                      </View>
+                    </TouchableWithoutFeedback>
+                  ))}
+            </View>
+          </Animated.ScrollView>
+        )}
+        <View
+          style={{
+            width: '100%',
+            height: '100%',
+            position: 'absolute',
+          }}>
+          <ThemeProvider theme={themes[theme]}>
+            <ProgressSlider />
+          </ThemeProvider>
+        </View>
+        {currentTrack.title !== '' && <Bar />}
+      </Modal>
+
+      {currentTrack.title !== '' && !hide && <Bar />}
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
     </>
   );
 }

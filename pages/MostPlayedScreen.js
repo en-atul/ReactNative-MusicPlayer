@@ -20,9 +20,12 @@ import {useSelector, useDispatch} from 'react-redux';
 import BottomMenu from '../components/BottomMenu';
 import Menu from 'react-native-vector-icons/Feather';
 import {setCurrentTrack, setQueue} from '../redux/actions/playback';
+<<<<<<< HEAD
 import {withTheme} from 'styled-components/native';
 import * as actions from '../redux/actions';
 import {connect} from 'react-redux';
+=======
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 
 function Item2({data, index, bc, border, txtColor}) {
   return (
@@ -55,7 +58,15 @@ function MostPlayed(props) {
   const {mostPlayed} = useSelector((state) => state.history);
   const {theme} = useSelector((state) => state.settings);
 
+<<<<<<< HEAD
   const {txt, header, bg, bg2, border1} = props.theme;
+=======
+  const bg = theme !== 'light' ? '#fff' : '#24292e';
+  const bg2 = theme !== 'light' ? '#000' : '#fff';
+  const txt = theme !== 'light' ? '#ccc' : '#212121';
+  const border1 = theme !== 'light' ? '#121212' : '#eee';
+  const header = theme !== 'light' ? '#000' : '#fff';
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 
   React.useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
@@ -265,4 +276,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+<<<<<<< HEAD
 export default connect('', actions)(withTheme(React.memo(MostPlayed)));
+=======
+export default React.memo(MostPlayed);
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f

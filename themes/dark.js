@@ -16,8 +16,11 @@ export const dark = {
   txt: '#ccc',
   border1: '#121212',
   header: '#000',
+<<<<<<< HEAD
 
   txt2: '#6b6b6b',
   bc: '#0e0e0e',
   ph: '#999',
+=======
+>>>>>>> e0c0a82c551a5a291a3236d8014f4705c922282f
 };
