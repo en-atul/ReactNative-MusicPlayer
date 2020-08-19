@@ -9,7 +9,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import {useDispatch} from 'react-redux';
-import {EventRegister} from 'react-native-event-listeners';
 import {withTheme} from 'styled-components/native';
 import Toast from '../components/Toast';
 import Menu from 'react-native-vector-icons/Feather';
@@ -33,14 +32,16 @@ function SettingScreen(props) {
   const onToggleSwitch = () => {
     if (!isSwitchOn) {
       dispatch(props.toggleTheme('dark'));
+      console.log('setting dark.....');
     } else {
       dispatch(props.toggleTheme('light'));
+      console.log('setting light.....');
     }
     setIsSwitchOn(!isSwitchOn);
   };
 
   const {current, background, border, txtColor} = props.theme;
-
+  console.log(props.theme);
   React.useEffect(() => {
     setIsSwitchOn(current === 'light' ? false : true);
   }, []);
