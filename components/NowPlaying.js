@@ -271,7 +271,6 @@ function NowPlaying(props) {
                     elevation: 15,
                     width: '70%',
                     height: '70%',
-                    backgroundColor: bg2,
                     borderRadius: 5,
                   }}>
                   <Image
