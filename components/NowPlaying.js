@@ -173,7 +173,6 @@ function NowPlaying(props) {
         style={[
           styles.playing,
           {
-            borderTopColor: border,
             borderColor: 'transparent',
             backgroundColor: bc,
           },

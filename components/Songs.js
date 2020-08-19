@@ -17,7 +17,6 @@ import {
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import Icon from 'react-native-vector-icons/Ionicons';
-import {EventRegister} from 'react-native-event-listeners';
 import {setCurrentTrack} from '../redux/actions/playback';
 import BottomMenu from './BottomMenu';
 import {withTheme} from 'styled-components/native';

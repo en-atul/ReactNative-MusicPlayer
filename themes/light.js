@@ -1,9 +1,8 @@
 export const light = {
   background: 'white',
-  border: '#f0f0f3',
   txtColor: '#24292e',
-  contrast: '#999',
-  contrastTrans: 'rgba(231,231,232, ',
+  contrast: '#6b6b6b',
+  contrastTrans: 'rgba(203,203,205, ',
   fgTrans: 'rgba(63, 81, 181, ',
   bgTrans: 'rgba(255, 255, 255, ',
   current: 'light',
