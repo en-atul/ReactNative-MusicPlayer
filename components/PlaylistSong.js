@@ -25,6 +25,9 @@ import MCI from 'react-native-vector-icons/MaterialCommunityIcons';
 import {deletePlaylistSong} from '../redux/actions/playlist';
 import {setCurrentTrack, setQueue} from '../redux/actions/playback';
 import BottomMenu from '../components/BottomMenuPlaylist';
+import {withTheme} from 'styled-components/native';
+import * as actions from '../redux/actions';
+import {connect} from 'react-redux';
 
 function Item2({data, index, l, color, select, arr, bc, border, txtColor}) {
   return (
@@ -68,20 +71,15 @@ function Item2({data, index, l, color, select, arr, bc, border, txtColor}) {
   );
 }
 
-export default function PlaylistSong(props) {
+function PlaylistSong(props) {
   const dispatch = useDispatch();
 
   const [select, setSelect] = React.useState(false);
   const [selectarr, setSelectArr] = React.useState([]);
 
   const {playlistSongs} = useSelector((state) => state.playlist);
-  const {theme} = useSelector((state) => state.settings);
 
-  const bg = theme !== 'light' ? '#fff' : '#24292e';
-  const bg2 = theme !== 'light' ? '#000' : '#fff';
-  const txt = theme !== 'light' ? '#ccc' : '#212121';
-  const border1 = theme !== 'light' ? '#121212' : '#eee';
-  const header = theme !== 'light' ? '#000' : '#fff';
+  const {txt, header, bg, bg2, border1} = props.theme;
 
   React.useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
@@ -458,3 +456,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+export default connect('', actions)(withTheme(PlaylistSong));

@@ -88,7 +88,7 @@ export default function BottomMenu(props) {
     Toast(`Added to queue`);
   };
 
-  const bg = theme === 'light' ? '#ffffff' : '#121212';
+  const bg = theme === 'light' ? '#ffffff' : '#191818';
 
   return (
     <>

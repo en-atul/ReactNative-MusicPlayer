@@ -38,7 +38,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import TrackPlayer from 'react-native-track-player';
 import {EventRegister} from 'react-native-event-listeners';
-import Modal from 'react-native-modal';
+import {withTheme} from 'styled-components/native';
 import {Badge} from 'react-native-paper';
 import {useDispatch, useSelector} from 'react-redux';
 import ProgressSlider from './ProgressSlider';
@@ -77,11 +77,7 @@ function Item2({data, index, bc, border, txtColor, un}) {
   );
 }
 
-function PlayingSong(props) {
-  const [panel, setPanel] = useState(false);
-  const [pos, setPos] = useState(false);
-  const [hide, setHide] = useState(false);
-
+function NowPlaying(props) {
   const dispatch = useDispatch();
   const {theme} = useSelector((state) => state.settings);
   const {songs} = useSelector((state) => state.data);
@@ -98,24 +94,8 @@ function PlayingSong(props) {
 
   const scrollA = React.useRef(new Animated.Value(0)).current;
 
-  const unRecognized = theme !== 'light' ? '#ccc' : '#121212';
-  const bg2 = theme !== 'light' ? '#0e0e0e' : '#fff';
-  const txt = theme !== 'light' ? '#fff' : '#24292e';
-  const txt2 = theme !== 'light' ? '#6b6b6b' : '#999';
-  const border1 = theme !== 'light' ? '#121212' : '#eee';
-  const bc = theme !== 'light' ? '#0e0e0e' : '#fafafa';
-
-  useEffect(() => {
-    EventRegister.addEventListener('shift', (data) => {
-      setPos(data);
-      EventRegister.removeEventListener('shift');
-    });
-
-    EventRegister.addEventListener('hide', (data) => {
-      setHide(data);
-      EventRegister.removeEventListener('hide');
-    });
-  }, []);
+  const {current, txt, txt2, bc, bg2, border1} = props.theme;
+  const unRecognized = current !== 'light' ? '#ccc' : '#121212';
 
   const currentPlay = (data) => {
     dispatch(setCurrentTrack(data));
@@ -174,13 +154,6 @@ function PlayingSong(props) {
     dispatch(setLoop(!loop));
   }
 
-  const closePanel = () => {
-    setPanel(false);
-  };
-  const openPanel = () => {
-    setPanel(true);
-  };
-
   const favAction = (song) => {
     if (favorite.some((data) => data.id === song.id)) {
       props.deleteFavorite(song.id);
@@ -202,7 +175,7 @@ function PlayingSong(props) {
         style={[
           styles.playing,
           {
-            borderTopColor: panel ? 'transparent' : border1,
+            borderTopColor: border1,
             borderColor: 'transparent',
             backgroundColor: bc,
           },
@@ -539,13 +512,6 @@ const styles = StyleSheet.create({
     color: '#6b6b6b',
     width: '70%',
   },
-  result: {
-    fontStyle: 'italic',
-    fontFamily: 'sans-serif-medium',
-    padding: 10,
-    paddingTop: 0,
-    textAlign: 'center',
-  },
 
   cover: {
     width: 45,
@@ -589,7 +555,7 @@ const styles = StyleSheet.create({
     display: 'none',
   },
 });
-PlayingSong.propTypes = {
+NowPlaying.propTypes = {
   data: PropTypes.object.isRequired,
   addFavorite: PropTypes.func.isRequired,
   deleteFavorite: PropTypes.func.isRequired,
@@ -605,4 +571,4 @@ const mapActionsToProps = {
 export default connect(
   mapStateToProps,
   mapActionsToProps,
-)(React.memo(PlayingSong));
+)(withTheme(React.memo(NowPlaying)));

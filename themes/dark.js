@@ -22,4 +22,5 @@ export const dark = {
   ph: '#999',
 
   nativeColor: '#212121',
+  baseColor: '#212121',
 };

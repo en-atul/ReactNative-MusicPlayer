@@ -17,17 +17,19 @@ import {
   BackHandler,
 } from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
-import {addPlaylistSong} from '../redux/actions/playlist';
+import {addPlaylistSong, deletePlaylistSong} from '../redux/actions/playlist';
 
 import Menu from 'react-native-vector-icons/Feather';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {withTheme} from 'styled-components/native';
+import * as actions from '../redux/actions';
+import {connect} from 'react-redux';
 
 function AddSongToPlaylist(props) {
   const dispatch = useDispatch();
 
   const {songs} = useSelector((state) => state.data);
   const {playlistSongs} = useSelector((state) => state.playlist);
-  const {theme} = useSelector((state) => state.settings);
 
   React.useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
@@ -44,11 +46,7 @@ function AddSongToPlaylist(props) {
     return true;
   };
 
-  const bg = theme !== 'light' ? '#fff' : '#24292e';
-  const bg2 = theme !== 'light' ? '#000' : '#fff';
-  const txt = theme !== 'light' ? '#ccc' : '#212121';
-  const border1 = theme !== 'light' ? '#121212' : '#eee';
-  const header = theme !== 'light' ? '#000' : '#fff';
+  const {txt, header, bg, bg2, border1, baseColor} = props.theme;
 
   const selectId = (data) => {
     const item = {
@@ -63,7 +61,10 @@ function AddSongToPlaylist(props) {
       db: props.route.params.data,
       index: data.index,
     };
-    dispatch(addPlaylistSong(item));
+
+    if (playlistSongs.some((res) => res.id === item.id)) {
+      dispatch(deletePlaylistSong(item.id));
+    } else dispatch(addPlaylistSong(item));
   };
 
   function Item2({data, index, l, bc, border, txtColor}) {
@@ -102,7 +103,7 @@ function AddSongToPlaylist(props) {
                 (res) => res.id === data.id + props.route.params.data,
               )
                 ? '#2EC7FC'
-                : '#ecf1f7',
+                : baseColor,
               width: 20,
               height: 20,
               borderRadius: 50,
@@ -282,4 +283,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default React.memo(AddSongToPlaylist);
+export default connect('', actions)(withTheme(React.memo(AddSongToPlaylist)));

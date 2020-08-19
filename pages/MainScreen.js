@@ -20,7 +20,6 @@ import Menu from 'react-native-vector-icons/Feather';
 import {withTheme} from 'styled-components/native';
 import * as actions from '../redux/actions';
 import {connect} from 'react-redux';
-import BottomNowPlaying from '../components/BottomNowPlaying';
 
 import Songs from '../components/Songs';
 import Details from '../components/Details';
@@ -38,20 +37,7 @@ function MainScreen(props) {
     props.navigation.navigate(path);
   };
 
-  const {
-    current,
-    background,
-    border,
-    txtColor,
-    txt,
-    txt2,
-    bc,
-    ph,
-    header,
-    bg,
-    bg2,
-    border1,
-  } = props.theme;
+  const {header, bg, bg2, border1} = props.theme;
 
   return (
     <View style={[styles.container, {backgroundColor: bg2}]}>

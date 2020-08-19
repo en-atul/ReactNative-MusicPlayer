@@ -22,4 +22,5 @@ export const light = {
   ph: '#BCBABA',
 
   nativeColor: '#2EC7FC',
+  baseColor: '#ecf1f7',
 };
