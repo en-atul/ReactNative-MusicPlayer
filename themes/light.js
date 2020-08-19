@@ -20,4 +20,6 @@ export const light = {
   txt2: '#212121',
   bc: '#fafafa',
   ph: '#BCBABA',
+
+  nativeColor: '#2EC7FC',
 };

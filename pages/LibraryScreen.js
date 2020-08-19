@@ -40,7 +40,7 @@ function LibraryScreen(props) {
   const {albums, artists} = useSelector((state) => state.data);
   const {recentlyPlayed, mostPlayed} = useSelector((state) => state.history);
 
-  const {txt, header, bg, bg2, border1} = props.theme;
+  const {txt, header, bg, bg2, border1, nativeColor} = props.theme;
 
   let data = _.groupBy(songs, 'folder');
   let folder = Object.keys(data);
@@ -58,7 +58,7 @@ function LibraryScreen(props) {
         <View style={styles.select}>
           <View
             style={{
-              backgroundColor: '#2EC7FC',
+              backgroundColor: nativeColor,
               width: select ? '50%' : '70%',
               height: 30,
 

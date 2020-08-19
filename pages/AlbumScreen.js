@@ -17,7 +17,7 @@ import {connect} from 'react-redux';
 function AlbumScreen(props) {
   const {albums} = useSelector((state) => state.data);
 
-  const {txt, header, bg, bg2, border1} = props.theme;
+  const {txt, header, bg, bg2, border1, nativeColor} = props.theme;
 
   function Item2({data, index, arr, bc, border, txtColor}) {
     return (
@@ -32,7 +32,7 @@ function AlbumScreen(props) {
         <View style={styles.select}>
           <View
             style={{
-              backgroundColor: '#2EC7FC',
+              backgroundColor: nativeColor,
               width: '70%',
               height: 30,
               borderRadius: 20,

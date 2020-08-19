@@ -21,6 +21,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import BottomMenu from './BottomMenu';
 import {setCurrentTrack, setQueue} from '../redux/actions/playback';
 import Menu from 'react-native-vector-icons/Feather';
+import {withTheme} from 'styled-components/native';
+import * as actions from '../redux/actions';
+import {connect} from 'react-redux';
 
 function Item({item, bc, border, txtColor}) {
   return (
@@ -60,17 +63,12 @@ function Item({item, bc, border, txtColor}) {
   );
 }
 
-function MainScreen(props) {
+function LibrarySong(props) {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.data);
 
   const {songs} = data;
-  const {theme} = useSelector((state) => state.settings);
-  const bg = theme !== 'light' ? '#ccc' : '#121212';
-  const bg2 = theme !== 'light' ? '#000' : '#fff';
-  const txt = theme !== 'light' ? '#fdfdfd' : '#121212';
-  const border1 = theme !== 'light' ? '#121212' : '#eee';
-  const header = theme !== 'light' ? '#000' : '#fff';
+  const {txt, header, bg, bg2, border1, nativeColor} = props.theme;
 
   const push = (song) => {
     dispatch(setCurrentTrack(song));
@@ -248,4 +246,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default React.memo(MainScreen);
+export default connect('', actions)(withTheme(React.memo(LibrarySong)));

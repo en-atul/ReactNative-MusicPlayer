@@ -203,7 +203,6 @@ function PlayingSong(props) {
           styles.playing,
           {
             borderTopColor: panel ? 'transparent' : border1,
-            borderBottomColor: panel ? 'transparent' : border1,
             borderColor: 'transparent',
             backgroundColor: bc,
           },
@@ -289,11 +288,16 @@ function PlayingSong(props) {
           scrollEventThrottle={16}>
           <View style={[styles.bigPlayer, {backgroundColor: bg2}]}>
             <Animated.View style={styles.coverWrap(scrollA)}>
-              <TouchableOpacity onPress={() => closePanel()}>
+              <TouchableOpacity
+                onPress={() => props.navigation.pop()}
+                style={{
+                  marginLeft: -Dimensions.get('window').width,
+                  left: 30,
+                }}>
                 <Icon2
                   name="chevron-small-down"
                   size={30}
-                  style={{marginLeft: 20, color: '#ccc'}}
+                  style={{color: '#ccc'}}
                 />
               </TouchableOpacity>
               {currentTrack.artwork ? (

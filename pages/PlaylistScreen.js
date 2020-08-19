@@ -45,7 +45,7 @@ function PlayistScreen(props) {
   const {playlist, playlistSongs} = useSelector((state) => state.playlist);
   const {theme} = useSelector((state) => state.settings);
 
-  const {current, txt, header, bg, bg2, border1} = props.theme;
+  const {current, txt, header, bg, bg2, border1, nativeColor} = props.theme;
   const modal = current !== 'light' ? '#121212' : '#fff';
 
   React.useEffect(() => {
@@ -75,7 +75,7 @@ function PlayistScreen(props) {
         <View style={styles.select}>
           <View
             style={{
-              backgroundColor: '#2EC7FC',
+              backgroundColor: nativeColor,
               width: select ? '50%' : '70%',
               height: 30,
 
@@ -384,6 +384,7 @@ function PlayistScreen(props) {
                 width: '80%',
                 marginTop: '20%',
                 paddingLeft: 10,
+                color: txt,
               }}
               onChangeText={(e) => setValue(e)}
             />
