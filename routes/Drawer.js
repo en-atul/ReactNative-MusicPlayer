@@ -11,7 +11,7 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {ThemeProvider} from 'styled-components/native';
 import * as themes from '../themes';
-
+import {TransitionPresets} from '@react-navigation/stack';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -260,7 +260,10 @@ function MyDrawer() {
             <Stack.Screen
               name="NowPlaying"
               component={NowPlaying}
-              options={{animationEnabled: true}}
+              options={{
+                animationEnabled: true,
+                ...TransitionPresets.ModalSlideFromBottomIOS,
+              }}
             />
           </>
         </Stack.Navigator>

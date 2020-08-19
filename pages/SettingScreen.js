@@ -38,7 +38,7 @@ function SettingScreen(props) {
     setIsSwitchOn(!isSwitchOn);
   };
 
-  const {current, background, border, txtColor} = props.theme;
+  const {current, background, border1, txtColor} = props.theme;
 
   React.useEffect(() => {
     setIsSwitchOn(current === 'light' ? false : true);
@@ -49,7 +49,7 @@ function SettingScreen(props) {
       <View
         style={[
           styles.header,
-          {backgroundColor: background, borderBottomColor: border},
+          {backgroundColor: background, borderBottomColor: border1},
         ]}>
         <TouchableOpacity
           onPress={() => props.navigation.openDrawer()}
@@ -86,7 +86,7 @@ function SettingScreen(props) {
           activeOpacity={1}
           style={[
             styles.item,
-            {backgroundColor: background, borderBottomColor: border},
+            {backgroundColor: background, borderBottomColor: border1},
           ]}>
           <View style={styles.left}>
             <Text style={styles.txt}>Dark theme</Text>
@@ -105,7 +105,7 @@ function SettingScreen(props) {
           activeOpacity={1}
           style={[
             styles.item,
-            {backgroundColor: background, borderBottomColor: border},
+            {backgroundColor: background, borderBottomColor: border1},
           ]}>
           <View style={styles.left}>
             <Text style={styles.txt}>Clear Cache</Text>

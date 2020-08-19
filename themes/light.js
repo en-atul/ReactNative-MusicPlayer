@@ -3,7 +3,7 @@ export const light = {
   border: '#f0f0f3',
   txtColor: '#24292e',
   elevatedBG: '#F7F8FB',
-  contrast: '#2EC7FC',
+  contrast: '#6b6b6b',
   contrastTrans: 'rgba(46,199,252, ',
   fgTrans: 'rgba(63, 81, 181, ',
   bgTrans: 'rgba(255, 255, 255, ',

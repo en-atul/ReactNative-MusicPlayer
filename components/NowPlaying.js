@@ -201,21 +201,11 @@ function NowPlaying(props) {
               alignItems: 'center',
             }}>
             <TouchableWithoutFeedback onPress={onLoopPress}>
-              <View style={{flexDirection: 'row'}}>
-                <Icon name="ios-repeat" size={25} color={txt} />
-                <Badge
-                  visible={loop}
-                  size={12}
-                  style={{
-                    color: '#fff',
-                    backgroundColor: '#24292e',
-                    position: 'absolute',
-                    right: 2,
-                    top: 3,
-                  }}>
-                  R
-                </Badge>
-              </View>
+              <Icon
+                name="ios-repeat"
+                size={25}
+                color={loop ? '#2EC7FC' : txt}
+              />
             </TouchableWithoutFeedback>
             <View
               style={{
@@ -241,7 +231,11 @@ function NowPlaying(props) {
               </TouchableWithoutFeedback>
             </View>
             <TouchableWithoutFeedback onPress={onShufflePress}>
-              <Icon name="ios-shuffle" size={25} color={txt} />
+              <Icon
+                name="ios-shuffle"
+                size={25}
+                color={shuffle ? '#2EC7FC' : txt}
+              />
             </TouchableWithoutFeedback>
           </View>
         </View>
