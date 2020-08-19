@@ -37,7 +37,7 @@ function MainScreen(props) {
     props.navigation.navigate(path);
   };
 
-  const {header, bg, bg2, border1} = props.theme;
+  const {header, bg, bg2, border} = props.theme;
 
   return (
     <View style={[styles.container, {backgroundColor: bg2}]}>
@@ -47,7 +47,7 @@ function MainScreen(props) {
           {
             backgroundColor: header,
             borderColor: 'transparent',
-            borderBottomColor: border1,
+            borderBottomColor: border,
             borderWidth: 0.5,
           },
         ]}>

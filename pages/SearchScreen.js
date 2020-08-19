@@ -263,7 +263,7 @@ class SearchScreen extends React.PureComponent {
 
     const {searched} = this.props.search;
 
-    const {txt, txt2, bc, ph, header, bg, bg2, border1} = this.props.theme;
+    const {txt, txt2, bc, ph, header, bg, bg2, border} = this.props.theme;
 
     return (
       <View style={[styles.container, {backgroundColor: bg2}]}>
@@ -273,7 +273,7 @@ class SearchScreen extends React.PureComponent {
             {
               backgroundColor: header,
               borderColor: 'transparent',
-              borderBottomColor: border1,
+              borderBottomColor: border,
               borderWidth: 0.5,
             },
           ]}>
@@ -308,7 +308,7 @@ class SearchScreen extends React.PureComponent {
                     color: bg,
                     backgroundColor: bc,
                     letterSpacing: 1,
-                    borderColor: border1,
+                    borderColor: border,
                   },
                 ]}
                 onChangeText={(e) => this.handleChange1(e)}
@@ -450,7 +450,7 @@ class SearchScreen extends React.PureComponent {
                             arr={selectarr}
                             select={select}
                             bc={bg2}
-                            border={border1}
+                            border={border}
                             txtColor={txt}
                           />
                         </TouchableOpacity>
@@ -481,7 +481,7 @@ class SearchScreen extends React.PureComponent {
                                 arr={selectarr}
                                 select={select}
                                 bc={bg2}
-                                border={border1}
+                                border={border}
                                 txtColor={txt}
                               />
                             </TouchableOpacity>
@@ -563,7 +563,7 @@ class SearchScreen extends React.PureComponent {
                                 arr={selectarr}
                                 select={select}
                                 bc={bg2}
-                                border={border1}
+                                border={border}
                                 txtColor={txt}
                               />
                             </TouchableOpacity>

@@ -46,7 +46,7 @@ function BottomNowPlaying(props) {
     (state) => state.playback,
   );
 
-  const {txt, txt2, bc, border1} = props.theme;
+  const {txt, txt2, bc, border} = props.theme;
 
   // useEffect(() => {
   //   EventRegister.addEventListener('shift', (data) => {
@@ -81,8 +81,8 @@ function BottomNowPlaying(props) {
       style={[
         styles.playing,
         {
-          borderTopColor: border1,
-          borderBottomColor: border1,
+          borderTopColor: border,
+          borderBottomColor: border,
           borderColor: 'transparent',
           backgroundColor: bc,
         },

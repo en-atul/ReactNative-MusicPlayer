@@ -68,7 +68,7 @@ function LibrarySong(props) {
   const data = useSelector((state) => state.data);
 
   const {songs} = data;
-  const {txt, header, bg, bg2, border1, nativeColor} = props.theme;
+  const {txt, header, bg, bg2, border, nativeColor} = props.theme;
 
   const push = (song) => {
     dispatch(setCurrentTrack(song));
@@ -85,7 +85,7 @@ function LibrarySong(props) {
           {
             backgroundColor: header,
             borderColor: 'transparent',
-            borderBottomColor: border1,
+            borderBottomColor: border,
             borderWidth: 0.5,
           },
         ]}>
@@ -171,12 +171,7 @@ function LibrarySong(props) {
                       props.route.params.data.length - 1 === index ? 220 : 0,
                   }}>
                   <View>
-                    <Item
-                      item={item}
-                      bc={bg2}
-                      border={border1}
-                      txtColor={txt}
-                    />
+                    <Item item={item} bc={bg2} border={border} txtColor={txt} />
                   </View>
                 </TouchableOpacity>
               )}

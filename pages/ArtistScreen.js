@@ -16,7 +16,7 @@ import {connect} from 'react-redux';
 
 function ArtistScreen(props) {
   const {artists} = useSelector((state) => state.data);
-  const {txt, header, bg, bg2, border1, nativeColor} = props.theme;
+  const {txt, header, bg, bg2, border, nativeColor} = props.theme;
 
   function Item2({data, index, arr, bc, border, txtColor}) {
     return (
@@ -62,7 +62,7 @@ function ArtistScreen(props) {
           {
             backgroundColor: header,
             borderColor: 'transparent',
-            borderBottomColor: border1,
+            borderBottomColor: border,
             borderWidth: 0.5,
           },
         ]}>
@@ -118,7 +118,7 @@ function ArtistScreen(props) {
                     index={index}
                     arr={item.data}
                     bc={bg2}
-                    border={border1}
+                    border={border}
                     txtColor={txt}
                   />
                 </TouchableOpacity>

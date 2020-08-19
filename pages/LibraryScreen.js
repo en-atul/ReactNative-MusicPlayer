@@ -40,7 +40,7 @@ function LibraryScreen(props) {
   const {albums, artists} = useSelector((state) => state.data);
   const {recentlyPlayed, mostPlayed} = useSelector((state) => state.history);
 
-  const {txt, header, bg, bg2, border1, nativeColor} = props.theme;
+  const {txt, header, bg, bg2, border, nativeColor} = props.theme;
 
   let data = _.groupBy(songs, 'folder');
   let folder = Object.keys(data);
@@ -95,7 +95,7 @@ function LibraryScreen(props) {
           {
             backgroundColor: header,
             borderColor: 'transparent',
-            borderBottomColor: border1,
+            borderBottomColor: border,
             borderWidth: 0.5,
           },
         ]}>
@@ -161,7 +161,7 @@ function LibraryScreen(props) {
                       : mostPlayed
                   }
                   bc={bg2}
-                  border={border1}
+                  border={border}
                   txtColor={txt}
                 />
               </TouchableOpacity>

@@ -45,7 +45,7 @@ function PlayistScreen(props) {
   const {playlist, playlistSongs} = useSelector((state) => state.playlist);
   const {theme} = useSelector((state) => state.settings);
 
-  const {current, txt, header, bg, bg2, border1, nativeColor} = props.theme;
+  const {current, txt, header, bg, bg2, border, nativeColor} = props.theme;
   const modal = current !== 'light' ? '#121212' : '#fff';
 
   React.useEffect(() => {
@@ -202,7 +202,7 @@ function PlayistScreen(props) {
           {
             backgroundColor: header,
             borderColor: 'transparent',
-            borderBottomColor: border1,
+            borderBottomColor: border,
             borderWidth: 0.5,
           },
         ]}>
@@ -325,7 +325,7 @@ function PlayistScreen(props) {
                       select={select}
                       arr={selectarr}
                       bc={bg2}
-                      border={border1}
+                      border={border}
                       txtColor={txt}
                     />
                   </TouchableOpacity>

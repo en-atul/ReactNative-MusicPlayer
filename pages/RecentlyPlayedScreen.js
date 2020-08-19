@@ -55,7 +55,7 @@ function RecentlyPlayed(props) {
 
   const {recentlyPlayed} = useSelector((state) => state.history);
 
-  const {txt, header, bg, bg2, border1} = props.theme;
+  const {txt, header, bg, bg2, border} = props.theme;
 
   React.useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
@@ -87,7 +87,7 @@ function RecentlyPlayed(props) {
           {
             backgroundColor: header,
             borderColor: 'transparent',
-            borderBottomColor: border1,
+            borderBottomColor: border,
             borderWidth: 0.5,
           },
         ]}>
@@ -166,7 +166,7 @@ function RecentlyPlayed(props) {
                       data={item}
                       index={index}
                       bc={bg2}
-                      border={border1}
+                      border={border}
                       txtColor={txt}
                     />
                   </TouchableOpacity>

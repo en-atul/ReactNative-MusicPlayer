@@ -29,7 +29,7 @@ function FolderScreen(props) {
   let data = _.groupBy(songs, 'folder');
   let folder = Object.keys(data);
 
-  const {txt, header, bg, bg2, border1, nativeColor} = props.theme;
+  const {txt, header, bg, bg2, border, nativeColor} = props.theme;
 
   function Item2({data, index, arr, bc, border, txtColor}) {
     let bi = _.groupBy(songs, 'folder');
@@ -77,7 +77,7 @@ function FolderScreen(props) {
           {
             backgroundColor: header,
             borderColor: 'transparent',
-            borderBottomColor: border1,
+            borderBottomColor: border,
             borderWidth: 0.5,
           },
         ]}>
@@ -133,7 +133,7 @@ function FolderScreen(props) {
                     index={index}
                     arr={folder}
                     bc={bg2}
-                    border={border1}
+                    border={border}
                     txtColor={txt}
                   />
                 </TouchableOpacity>

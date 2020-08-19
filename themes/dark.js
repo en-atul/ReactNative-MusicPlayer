@@ -1,7 +1,6 @@
 export const dark = {
   background: '#0e0e0e',
   txtColor: '#ccc',
-  elevatedBG: '#1D222D',
   contrast: 'white',
   contrastTrans: 'rgba(255, 255, 255, ',
   fgTrans: 'rgba(30, 215, 96, ',
@@ -10,7 +9,7 @@ export const dark = {
   bg: '#fff',
   bg2: '#0e0e0e',
   txt: '#ccc',
-  border1: '#191818',
+  border: '#191818',
   header: '#0e0e0e',
   txt2: '#6b6b6b',
   bc: '#0e0e0e',

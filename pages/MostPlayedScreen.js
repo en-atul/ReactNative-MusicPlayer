@@ -55,7 +55,7 @@ function MostPlayed(props) {
   const {mostPlayed} = useSelector((state) => state.history);
   const {theme} = useSelector((state) => state.settings);
 
-  const {txt, header, bg, bg2, border1} = props.theme;
+  const {txt, header, bg, bg2, border} = props.theme;
 
   React.useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
@@ -91,7 +91,7 @@ function MostPlayed(props) {
           {
             backgroundColor: header,
             borderColor: 'transparent',
-            borderBottomColor: border1,
+            borderBottomColor: border,
             borderWidth: 0.5,
           },
         ]}>
@@ -169,7 +169,7 @@ function MostPlayed(props) {
                       data={item.currentTrack}
                       index={index}
                       bc={bg2}
-                      border={border1}
+                      border={border}
                       txtColor={txt}
                     />
                   </TouchableOpacity>

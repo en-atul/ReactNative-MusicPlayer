@@ -42,7 +42,6 @@ class ProgressSlider extends ProgressComponent {
   };
 
   onSlidingStart = async () => {
-    console.log('sliding started');
     this.txt.fadeIn();
     this.txt.setNativeProps({
       style: {

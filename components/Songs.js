@@ -65,7 +65,7 @@ function MainScreen(props) {
   const data = useSelector((state) => state.data);
 
   const {songs} = data;
-  const {bg2, txt, border1} = props.theme;
+  const {bg2, txt, border} = props.theme;
 
   const push = (data) => {
     dispatch(setCurrentTrack(data));
@@ -89,7 +89,7 @@ function MainScreen(props) {
                 marginBottom: songs.length - 1 === index ? 220 : 0,
               }}>
               <View>
-                <Item item={item} bc={bg2} border={border1} txtColor={txt} />
+                <Item item={item} bc={bg2} border={border} txtColor={txt} />
               </View>
             </TouchableWithoutFeedback>
           )}

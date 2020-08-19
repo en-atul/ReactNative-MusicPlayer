@@ -254,7 +254,10 @@ function MyDrawer() {
         <Stack.Navigator
           headerMode="none"
           mode="modal"
-          screenOptions={{animationEnabled: false}}>
+          screenOptions={{
+            animationEnabled: false,
+            cardStyle: {backgroundColor: 'transparent'},
+          }}>
           <>
             <Stack.Screen name="Main" children={createTab} />
             <Stack.Screen

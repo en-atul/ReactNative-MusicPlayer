@@ -46,7 +46,7 @@ function AddSongToPlaylist(props) {
     return true;
   };
 
-  const {txt, header, bg, bg2, border1, baseColor} = props.theme;
+  const {txt, header, bg, bg2, border, baseColor} = props.theme;
 
   const selectId = (data) => {
     const item = {
@@ -127,7 +127,7 @@ function AddSongToPlaylist(props) {
           {
             backgroundColor: header,
             borderColor: 'transparent',
-            borderBottomColor: border1,
+            borderBottomColor: border,
             borderWidth: 0.5,
           },
         ]}>
@@ -183,7 +183,7 @@ function AddSongToPlaylist(props) {
                   index={index}
                   id={item.id}
                   bc={bg2}
-                  border={border1}
+                  border={border}
                   txtColor={txt}
                 />
               </TouchableOpacity>

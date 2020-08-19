@@ -78,7 +78,7 @@ function FavoriteScreen(props) {
   const dispatch = useDispatch();
   const {favorite} = useSelector((state) => state.favorite);
 
-  const {bg, bg2, txt, border1, header} = props.theme;
+  const {bg, bg2, txt, border, header} = props.theme;
 
   const selectItem = (id) => {
     setSelect(false);
@@ -152,7 +152,7 @@ function FavoriteScreen(props) {
           {
             backgroundColor: header,
             borderColor: 'transparent',
-            borderBottomColor: border1,
+            borderBottomColor: border,
             borderWidth: 0.5,
           },
         ]}>
@@ -287,7 +287,7 @@ function FavoriteScreen(props) {
                         select={select}
                         arr={selectarr}
                         bc={bg2}
-                        border={border1}
+                        border={border}
                         txtColor={txt}
                       />
                     </TouchableOpacity>

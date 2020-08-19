@@ -79,7 +79,7 @@ function PlaylistSong(props) {
 
   const {playlistSongs} = useSelector((state) => state.playlist);
 
-  const {txt, header, bg, bg2, border1} = props.theme;
+  const {txt, header, bg, bg2, border} = props.theme;
 
   React.useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
@@ -173,7 +173,7 @@ function PlaylistSong(props) {
           {
             backgroundColor: header,
             borderColor: 'transparent',
-            borderBottomColor: border1,
+            borderBottomColor: border,
             borderWidth: 0.5,
           },
         ]}>
@@ -343,7 +343,7 @@ function PlaylistSong(props) {
                     select={select}
                     arr={selectarr}
                     bc={bg2}
-                    border={border1}
+                    border={border}
                     txtColor={txt}
                   />
                 </TouchableOpacity>

@@ -94,7 +94,7 @@ function NowPlaying(props) {
 
   const scrollA = React.useRef(new Animated.Value(0)).current;
 
-  const {current, txt, txt2, bc, bg2, border1} = props.theme;
+  const {current, txt, txt2, bc, bg2, border} = props.theme;
   const unRecognized = current !== 'light' ? '#ccc' : '#121212';
 
   const currentPlay = (data) => {
@@ -175,7 +175,7 @@ function NowPlaying(props) {
         style={[
           styles.playing,
           {
-            borderTopColor: border1,
+            borderTopColor: border,
             borderColor: 'transparent',
             backgroundColor: bc,
           },
@@ -368,7 +368,7 @@ function NowPlaying(props) {
                         data={data}
                         index={i}
                         bc={bg2}
-                        border={border1}
+                        border={border}
                         txtColor={data.id === currentTrack.id ? '#36C0FC' : txt}
                         un={unRecognized}
                       />

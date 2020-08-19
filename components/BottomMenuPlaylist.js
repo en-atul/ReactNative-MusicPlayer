@@ -25,6 +25,7 @@ export default function BottomMenuPlaylist(props) {
 
   const [visible, setVisible] = React.useState(false);
   const {favorite} = useSelector((state) => state.favorite);
+  const {theme} = useSelector((state) => state.settings);
 
   function onShare() {
     Share.open({
@@ -53,6 +54,7 @@ export default function BottomMenuPlaylist(props) {
     TrackPlayer.add(props.song);
     Toast(`Added to queue`);
   };
+  const bg = theme === 'light' ? '#ffffff' : '#191818';
 
   return (
     <>
@@ -71,7 +73,7 @@ export default function BottomMenuPlaylist(props) {
       <Modal
         isVisible={visible}
         backdropOpacity={0.5}
-        backdropColor="#fff"
+        backdropColor={bg}
         style={{margin: 0}}
         animationInTiming={500}
         animationOutTiming={500}
