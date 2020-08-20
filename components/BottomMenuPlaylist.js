@@ -15,7 +15,6 @@ import {
   Dimensions,
   Image,
 } from 'react-native';
-import styled from 'styled-components';
 import Modal from 'react-native-modal';
 import Icon from 'react-native-vector-icons/Entypo';
 import Icon2 from 'react-native-vector-icons/Ionicons';
