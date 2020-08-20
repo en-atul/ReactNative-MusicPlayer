@@ -33,6 +33,9 @@ export default function BottomMenuPlaylist(props) {
   const {favorite} = useSelector((state) => state.favorite);
   const {theme} = useSelector((state) => state.settings);
 
+  const title = theme === 'light' ? '#121212' : '#6b6b6b';
+  const album = theme === 'light' ? '#6b6b6b' : '#323738';
+
   function onShare() {
     Share.open({
       url: `file://${props.song.url}`,
@@ -103,12 +106,12 @@ export default function BottomMenuPlaylist(props) {
                 fontWeight: '700',
                 textAlign: 'center',
                 width: '80%',
-                color: '#323738',
+                color: title,
               }}
               numberOfLines={1}>
               {props.song.title}
             </Text>
-            <Text style={{fontWeight: '700', fontSize: 12, color: '#999'}}>
+            <Text style={{fontWeight: '700', fontSize: 12, color: album}}>
               {props.song.album || 'unknown'}
             </Text>
 

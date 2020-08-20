@@ -97,6 +97,8 @@ export default function BottomMenu(props) {
   };
 
   const bg = theme === 'light' ? '#ffffff' : '#191818';
+  const title = theme === 'light' ? '#121212' : '#6b6b6b';
+  const album = theme === 'light' ? '#6b6b6b' : '#323738';
 
   return (
     <>
@@ -139,12 +141,17 @@ export default function BottomMenu(props) {
                 fontWeight: '700',
                 textAlign: 'center',
                 width: '80%',
-                color: '#323738',
+                color: title,
               }}
               numberOfLines={1}>
               {props.song.title}
             </Text>
-            <Text style={{fontWeight: '700', fontSize: 12, color: '#999'}}>
+            <Text
+              style={{
+                fontWeight: '700',
+                fontSize: 12,
+                color: album,
+              }}>
               {props.song.album || 'unknown'}
             </Text>
             <TouchableOpacity onPress={onAddPress} style={styles.item}>
@@ -219,12 +226,17 @@ export default function BottomMenu(props) {
                 fontWeight: '700',
                 textAlign: 'center',
                 width: '80%',
-                color: '#121212',
+                color: title,
               }}
               numberOfLines={1}>
               {props.song.title}
             </Text>
-            <Text style={{fontWeight: '700', fontSize: 12, color: '#6b6b6b'}}>
+            <Text
+              style={{
+                fontWeight: '700',
+                fontSize: 12,
+                color: album,
+              }}>
               {props.song.album || 'unknown'}
             </Text>
             {playlist.length > 0 ? (
