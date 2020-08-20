@@ -76,7 +76,7 @@ function MainScreen(props) {
               textAlign: 'center',
               fontSize: 30,
               color: bg,
-              fontFamily: 'Baumans',
+              fontFamily: 'Monoton',
             }}>
             vion
           </Text>

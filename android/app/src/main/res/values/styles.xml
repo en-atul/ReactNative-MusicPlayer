@@ -8,8 +8,8 @@
     </style>
 
     <style name="SplashScreenTheme" parent="SplashScreen_SplashTheme">
-          <item name="android:colorPrimaryDark">#ffffff</item>
-          <item name="android:navigationBarColor">#ffffff</item>
+          <item name="android:colorPrimaryDark">#0e0e0e</item>
+          <item name="android:navigationBarColor">#0e0e0e</item>
     </style>
 
 </resources>
