@@ -1,3 +1,11 @@
+/**atul15r
+ * React Native Music Player
+ * https://github.com/atul15r
+ *7 Aug 2020
+ * @format
+ * @flow
+ */
+
 import React from 'react';
 import {Dimensions} from 'react-native';
 import styled, {withTheme} from 'styled-components/native';
