@@ -162,7 +162,7 @@ function PlayistScreen(props) {
               justifyContent: 'center',
               borderWidth: 0.7,
               borderColor: 'transparent',
-              borderBottomColor: '#ecf1f7',
+              borderBottomColor: border,
               backgroundColor: '#ff5d72',
             }}>
             <Animated.View
