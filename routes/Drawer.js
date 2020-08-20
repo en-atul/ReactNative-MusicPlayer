@@ -66,7 +66,7 @@ function MyDrawer() {
   const active = theme !== 'light' ? '#6b6b6b' : '#000';
   const fullBack = theme !== 'light' ? '#0e0e0e' : '#00000000';
   const bg2 = theme !== 'light' ? '#ccc' : '#6b6b6b';
-  const border = theme !== 'light' ? '#0e0e0e' : '#f0f0f3';
+  const border = theme !== 'light' ? '#191818' : '#f0f0f3';
   const inactive = theme !== 'light' ? '#414141' : '#b9b9b9';
 
   function libraryStack() {

@@ -1,6 +1,6 @@
 const INITIAL_STATE = {
   foldersToSkip: ['whatsapp audio'],
-  theme: 'light',
+  theme: 'dark',
 };
 
 export default function (state = INITIAL_STATE, action) {

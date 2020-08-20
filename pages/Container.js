@@ -76,7 +76,7 @@ function Container(props) {
               loop
             />
           </View>
-          <Text style={{color: '#000', fontFamily: 'OpenSans'}}>
+          <Text style={{color: '#fff', fontFamily: 'OpenSans'}}>
             fetching songs...
           </Text>
           {vol && (

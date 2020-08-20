@@ -34,13 +34,17 @@ import {setCurrentTrack} from '../redux/actions/playback';
 import * as Animatable from 'react-native-animatable';
 import BottomMenu from '../components/BottomMenu';
 
-function Item2({data, index, l, color, arr, select, bc, border, txtColor}) {
+function Item2({data, index, arr, select, bc, border, txtColor}) {
   return (
     <View
       key={index}
       style={[styles.item, {backgroundColor: bc, borderBottomColor: border}]}>
       <View style={styles.left}>
-        <Image source={{uri: data.artwork}} style={styles.cover} />
+        {data.artwork ? (
+          <Image source={{uri: data.artwork}} style={styles.cover} />
+        ) : (
+          <Icon name="ios-musical-notes-outline" size={30} color={txtColor} />
+        )}
       </View>
       <View style={styles.right}>
         <Text style={[styles.itemTxt, {color: txtColor}]} numberOfLines={1}>
@@ -445,8 +449,6 @@ class SearchScreen extends React.PureComponent {
                           <Item2
                             data={item}
                             index={index}
-                            id={item.id}
-                            color={bg}
                             arr={selectarr}
                             select={select}
                             bc={bg2}
@@ -476,8 +478,6 @@ class SearchScreen extends React.PureComponent {
                               <Item2
                                 data={item}
                                 index={index}
-                                id={item.id}
-                                color={bg}
                                 arr={selectarr}
                                 select={select}
                                 bc={bg2}
@@ -499,8 +499,6 @@ class SearchScreen extends React.PureComponent {
                     width: '100%',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    // top: 0,
-                    // position: 'absolute',
                   }}>
                   {searched.length > 0 && (
                     <Text
@@ -558,8 +556,6 @@ class SearchScreen extends React.PureComponent {
                               <Item2
                                 data={item}
                                 index={index}
-                                id={item.id}
-                                color={bg}
                                 arr={selectarr}
                                 select={select}
                                 bc={bg2}
@@ -634,7 +630,6 @@ const styles = StyleSheet.create({
     height: 70,
     width: '100%',
     overflow: 'hidden',
-
     borderWidth: 0.7,
     borderColor: 'transparent',
     borderBottomColor: '#ecf1f7',
@@ -656,7 +651,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: '100%',
     flexDirection: 'row',
-    // backgroundColor: '#fff',
   },
   item2: {
     marginLeft: 10,
@@ -677,11 +671,8 @@ const styles = StyleSheet.create({
     width: 45,
     height: 45,
     borderRadius: 5,
-    backgroundColor: '#fafafa',
     alignItems: 'center',
     justifyContent: 'center',
-    // borderWidth: 0.7,
-    // borderColor: '#eee',
   },
 
   left: {
