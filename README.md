@@ -25,7 +25,7 @@ steps to run the project</br>
   
   
 <div style="display:flex;width:auto;height:auto;">
-  <img src="screenshots/img1.png" width="200px" height="400px"/>
+  <img src="screenshots/img1.png" width="200px" height="400px" style="border-radius:10px"/>
   <img src="screenshots/img2.png" width="200px" height="400px"/>
   <img src="screenshots/img3.png" width="200px" height="400px"/>
   <img src="screenshots/img4.png" width="200px" height="400px"/>
