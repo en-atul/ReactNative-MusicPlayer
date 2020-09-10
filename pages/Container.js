@@ -25,7 +25,7 @@ import {toggleTheme} from '../redux/actions/settings';
 import SplashScreen from 'react-native-splash-screen';
 
 function Container(props) {
-  const [vol, setVol] = React.useState(false);
+  const [vol] = React.useState(false);
   const dispatch = useDispatch();
   const {songs} = useSelector((state) => state.data);
   const {theme} = useSelector((state) => state.settings);
